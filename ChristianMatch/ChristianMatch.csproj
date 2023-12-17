@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3A70FD17-5371-4058-92B9-7CB4087E336A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ChristianMatch</RootNamespace>
+    <AssemblyName>ChristianMatch</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Baseball\GameConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Baseball\GameConfig.Designer.cs">
+      <DependentUpon>GameConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Baseball\GameController.cs" />
+    <Compile Include="Baseball\GameScene.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Baseball\GameScene.Designer.cs">
+      <DependentUpon>GameScene.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Baseball\HitSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Baseball\HitSelector.Designer.cs">
+      <DependentUpon>HitSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Characters\Characters.cs" />
+    <Compile Include="Common\Characters\CharacterSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\Characters\CharacterSelector.Designer.cs">
+      <DependentUpon>CharacterSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Dialogs\FastQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\Dialogs\FastQuestionForm.Designer.cs">
+      <DependentUpon>FastQuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Questions\LevelQuestionsDispatcher.cs" />
+    <Compile Include="Common\Questions\CoupleQuestionsDispatcher.cs" />
+    <Compile Include="Common\QForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\Questions\Modals\QuestionaryCreator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\Questions\Modals\QuestionaryCreator.Designer.cs">
+      <DependentUpon>QuestionaryCreator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Questions\Modals\QuestionarySelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\Questions\Modals\QuestionarySelector.Designer.cs">
+      <DependentUpon>QuestionarySelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Questions\Question.cs" />
+    <Compile Include="Common\Questions\Questionary.cs" />
+    <Compile Include="Common\Dialogs\QuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\Dialogs\QuestionForm.designer.cs">
+      <DependentUpon>QuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Questions\QuestionaryManager.cs" />
+    <Compile Include="Common\Questions\QuestionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\Questions\QuestionsForm.designer.cs">
+      <DependentUpon>QuestionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Questions\SimpleQuestionsDispatcher.cs" />
+    <Compile Include="Common\Dialogs\TeamReadyDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\Dialogs\TeamReadyDialog.Designer.cs">
+      <DependentUpon>TeamReadyDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Dialogs\SimpleQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\Dialogs\SimpleQuestionForm.Designer.cs">
+      <DependentUpon>SimpleQuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Dialogs\StepsSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\Dialogs\StepsSelector.Designer.cs">
+      <DependentUpon>StepsSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Dialogs\WinnerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\Dialogs\WinnerForm.Designer.cs">
+      <DependentUpon>WinnerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Sounds\SoundPlayer.cs" />
+    <Compile Include="FastMatch\GameConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FastMatch\GameConfig.Designer.cs">
+      <DependentUpon>GameConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FastMatch\GameScene.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FastMatch\GameScene.Designer.cs">
+      <DependentUpon>GameScene.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Help\HelpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help\HelpForm.Designer.cs">
+      <DependentUpon>HelpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="i18n\Dictionary.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleMatch\GameConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SimpleMatch\GameConfig.Designer.cs">
+      <DependentUpon>GameConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleMatch\GameScene.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SimpleMatch\GameScene.Designer.cs">
+      <DependentUpon>GameScene.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WalkingUp\GameConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WalkingUp\GameConfig.Designer.cs">
+      <DependentUpon>GameConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WalkingUp\GameScene.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WalkingUp\GameScene.Designer.cs">
+      <DependentUpon>GameScene.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Baseball\GameConfig.resx">
+      <DependentUpon>GameConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Baseball\GameScene.resx">
+      <DependentUpon>GameScene.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Baseball\HitSelector.resx">
+      <DependentUpon>HitSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\Characters\CharacterSelector.resx">
+      <DependentUpon>CharacterSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\Dialogs\FastQuestionForm.resx">
+      <DependentUpon>FastQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\Dialogs\QuestionForm.resx">
+      <DependentUpon>QuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\Questions\Modals\QuestionaryCreator.resx">
+      <DependentUpon>QuestionaryCreator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\Questions\Modals\QuestionarySelector.resx">
+      <DependentUpon>QuestionarySelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\Questions\QuestionsForm.resx">
+      <DependentUpon>QuestionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\Dialogs\TeamReadyDialog.resx">
+      <DependentUpon>TeamReadyDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\Dialogs\SimpleQuestionForm.resx">
+      <DependentUpon>SimpleQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\Dialogs\StepsSelector.resx">
+      <DependentUpon>StepsSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\Dialogs\WinnerForm.resx">
+      <DependentUpon>WinnerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FastMatch\GameConfig.resx">
+      <DependentUpon>GameConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FastMatch\GameScene.resx">
+      <DependentUpon>GameScene.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help\HelpForm.resx">
+      <DependentUpon>HelpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SimpleMatch\GameConfig.resx">
+      <DependentUpon>GameConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SimpleMatch\GameScene.resx">
+      <DependentUpon>GameScene.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WalkingUp\GameConfig.resx">
+      <DependentUpon>GameConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WalkingUp\GameScene.resx">
+      <DependentUpon>GameScene.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\resources\icons\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\resources\icons\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\resources\icons\love.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OK1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

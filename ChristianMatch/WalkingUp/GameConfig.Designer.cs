@@ -1,0 +1,280 @@
+﻿namespace ChristianMatch.WalkingUp
+{
+    partial class GameConfig
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameConfig));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.stepsUpDown = new System.Windows.Forms.NumericUpDown();
+            this.questionariesCBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.secondsLb = new System.Windows.Forms.Label();
+            this.timeLimitsUpDown = new System.Windows.Forms.NumericUpDown();
+            this.topLabel = new System.Windows.Forms.Label();
+            this.possibleAnswersChBox = new System.Windows.Forms.CheckBox();
+            this.timeLimitChBox = new System.Windows.Forms.CheckBox();
+            this.continueBtn = new System.Windows.Forms.Button();
+            this.cancelBtn = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stepsUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeLimitsUpDown)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.stepsUpDown);
+            this.panel1.Controls.Add(this.questionariesCBox);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.secondsLb);
+            this.panel1.Controls.Add(this.timeLimitsUpDown);
+            this.panel1.Controls.Add(this.topLabel);
+            this.panel1.Controls.Add(this.possibleAnswersChBox);
+            this.panel1.Controls.Add(this.timeLimitChBox);
+            this.panel1.Controls.Add(this.continueBtn);
+            this.panel1.Controls.Add(this.cancelBtn);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(453, 661);
+            this.panel1.TabIndex = 13;
+            // 
+            // stepsUpDown
+            // 
+            this.stepsUpDown.Font = new System.Drawing.Font("Comic Sans MS", 11F);
+            this.stepsUpDown.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.stepsUpDown.Location = new System.Drawing.Point(115, 385);
+            this.stepsUpDown.Maximum = new decimal(new int[] {
+            90,
+            0,
+            0,
+            0});
+            this.stepsUpDown.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.stepsUpDown.Name = "stepsUpDown";
+            this.stepsUpDown.Size = new System.Drawing.Size(57, 38);
+            this.stepsUpDown.TabIndex = 17;
+            this.stepsUpDown.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // questionariesCBox
+            // 
+            this.questionariesCBox.BackColor = System.Drawing.SystemColors.Info;
+            this.questionariesCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.questionariesCBox.Font = new System.Drawing.Font("Comic Sans MS", 11F);
+            this.questionariesCBox.FormattingEnabled = true;
+            this.questionariesCBox.Location = new System.Drawing.Point(178, 462);
+            this.questionariesCBox.Name = "questionariesCBox";
+            this.questionariesCBox.Size = new System.Drawing.Size(238, 38);
+            this.questionariesCBox.TabIndex = 20;
+            this.questionariesCBox.SelectedIndexChanged += new System.EventHandler(this.questionariesCBox_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 11F);
+            this.label2.Location = new System.Drawing.Point(26, 466);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(146, 30);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Cuestionario:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 11F);
+            this.label1.Location = new System.Drawing.Point(27, 355);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(338, 60);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Cantidad de pasos para llegar a \r\nla cima:";
+            // 
+            // secondsLb
+            // 
+            this.secondsLb.AutoSize = true;
+            this.secondsLb.Font = new System.Drawing.Font("Comic Sans MS", 11F);
+            this.secondsLb.Location = new System.Drawing.Point(125, 269);
+            this.secondsLb.Name = "secondsLb";
+            this.secondsLb.Size = new System.Drawing.Size(107, 30);
+            this.secondsLb.TabIndex = 19;
+            this.secondsLb.Text = "segundos";
+            this.secondsLb.Visible = false;
+            // 
+            // timeLimitsUpDown
+            // 
+            this.timeLimitsUpDown.Font = new System.Drawing.Font("Comic Sans MS", 11F);
+            this.timeLimitsUpDown.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.timeLimitsUpDown.Location = new System.Drawing.Point(62, 267);
+            this.timeLimitsUpDown.Maximum = new decimal(new int[] {
+            90,
+            0,
+            0,
+            0});
+            this.timeLimitsUpDown.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.timeLimitsUpDown.Name = "timeLimitsUpDown";
+            this.timeLimitsUpDown.Size = new System.Drawing.Size(57, 38);
+            this.timeLimitsUpDown.TabIndex = 17;
+            this.timeLimitsUpDown.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.timeLimitsUpDown.Visible = false;
+            // 
+            // topLabel
+            // 
+            this.topLabel.BackColor = System.Drawing.Color.DodgerBlue;
+            this.topLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.topLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.topLabel.Font = new System.Drawing.Font("Kristen ITC", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.topLabel.ForeColor = System.Drawing.Color.DarkBlue;
+            this.topLabel.Location = new System.Drawing.Point(0, 0);
+            this.topLabel.Name = "topLabel";
+            this.topLabel.Size = new System.Drawing.Size(451, 81);
+            this.topLabel.TabIndex = 16;
+            this.topLabel.Text = "Reglas del juego";
+            this.topLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // possibleAnswersChBox
+            // 
+            this.possibleAnswersChBox.AutoSize = true;
+            this.possibleAnswersChBox.Checked = true;
+            this.possibleAnswersChBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.possibleAnswersChBox.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.possibleAnswersChBox.Location = new System.Drawing.Point(31, 100);
+            this.possibleAnswersChBox.Name = "possibleAnswersChBox";
+            this.possibleAnswersChBox.Size = new System.Drawing.Size(385, 64);
+            this.possibleAnswersChBox.TabIndex = 14;
+            this.possibleAnswersChBox.Text = "Mostrar questionario con posibles\r\nrespuestas";
+            this.possibleAnswersChBox.UseVisualStyleBackColor = true;
+            // 
+            // timeLimitChBox
+            // 
+            this.timeLimitChBox.AutoSize = true;
+            this.timeLimitChBox.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLimitChBox.Location = new System.Drawing.Point(31, 227);
+            this.timeLimitChBox.Name = "timeLimitChBox";
+            this.timeLimitChBox.Size = new System.Drawing.Size(351, 34);
+            this.timeLimitChBox.TabIndex = 15;
+            this.timeLimitChBox.Text = "Limitar el tiempo de respuesta";
+            this.timeLimitChBox.UseVisualStyleBackColor = true;
+            this.timeLimitChBox.CheckedChanged += new System.EventHandler(this.timeLimitChBox_CheckedChanged);
+            // 
+            // continueBtn
+            // 
+            this.continueBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.continueBtn.Enabled = false;
+            this.continueBtn.FlatAppearance.BorderSize = 0;
+            this.continueBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.continueBtn.Font = new System.Drawing.Font("Comic Sans MS", 11F);
+            this.continueBtn.Image = global::ChristianMatch.Properties.Resources.ok;
+            this.continueBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.continueBtn.Location = new System.Drawing.Point(246, 558);
+            this.continueBtn.Name = "continueBtn";
+            this.continueBtn.Size = new System.Drawing.Size(190, 66);
+            this.continueBtn.TabIndex = 12;
+            this.continueBtn.Text = "Continuar";
+            this.continueBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.continueBtn.UseVisualStyleBackColor = true;
+            this.continueBtn.Click += new System.EventHandler(this.continueBtn_Click);
+            // 
+            // cancelBtn
+            // 
+            this.cancelBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cancelBtn.FlatAppearance.BorderSize = 0;
+            this.cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelBtn.Font = new System.Drawing.Font("Comic Sans MS", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelBtn.Image = ((System.Drawing.Image)(resources.GetObject("cancelBtn.Image")));
+            this.cancelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cancelBtn.Location = new System.Drawing.Point(11, 558);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(188, 66);
+            this.cancelBtn.TabIndex = 13;
+            this.cancelBtn.Text = "Cancelar";
+            this.cancelBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            // 
+            // GameConfig
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Ivory;
+            this.ClientSize = new System.Drawing.Size(453, 661);
+            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "GameConfig";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "GameConfig";
+            this.Load += new System.EventHandler(this.GameConfig_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stepsUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeLimitsUpDown)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox questionariesCBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label secondsLb;
+        private System.Windows.Forms.NumericUpDown timeLimitsUpDown;
+        private System.Windows.Forms.Label topLabel;
+        private System.Windows.Forms.CheckBox possibleAnswersChBox;
+        private System.Windows.Forms.CheckBox timeLimitChBox;
+        private System.Windows.Forms.Button continueBtn;
+        private System.Windows.Forms.Button cancelBtn;
+        private System.Windows.Forms.NumericUpDown stepsUpDown;
+        private System.Windows.Forms.Label label1;
+    }
+}

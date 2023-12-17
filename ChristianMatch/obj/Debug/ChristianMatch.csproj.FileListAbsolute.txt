@@ -1,0 +1,83 @@
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.csprojResolveAssemblyReference.cache
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.Questions.resources
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.MainForm.resources
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Properties.Resources.resources
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.csproj.GenerateResource.Cache
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\bin\Debug\ChristianMatch.exe
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\bin\Debug\ChristianMatch.pdb
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.exe
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.pdb
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.CharacterSelector.resources
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.SimpleMatch.GameConfig.resources
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.SimpleMatch.GameScene.resources
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.TeamReadyDialog.resources
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.QuestionForm.resources
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.SimpleQuestionForm.resources
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.FastMatch.GameConfig.resources
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.FastQuestionForm.resources
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.FastMatch.GameScene.resources
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.WalkingUp.GameScene.resources
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.WalkingUp.GameConfig.resources
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.StepsSelector.resources
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.WinnerForm.resources
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Baseball.GameConfig.resources
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Baseball.GameScene.resources
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Baseball.HitSelector.resources
+D:\Projects\Cristianos\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Help.HelpForm.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.exe
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.pdb
+D:\Development\C#\ChristianMatch\ChristianMatch\bin\Debug\ChristianMatch.exe
+D:\Development\C#\ChristianMatch\ChristianMatch\bin\Debug\ChristianMatch.pdb
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.csprojResolveAssemblyReference.cache
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Baseball.GameConfig.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Baseball.GameScene.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Baseball.HitSelector.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.CharacterSelector.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.FastQuestionForm.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.QuestionForm.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.TeamReadyDialog.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.SimpleQuestionForm.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.StepsSelector.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.WinnerForm.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.FastMatch.GameConfig.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.FastMatch.GameScene.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Help.HelpForm.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.MainForm.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Properties.Resources.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.SimpleMatch.GameConfig.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.SimpleMatch.GameScene.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.WalkingUp.GameConfig.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.WalkingUp.GameScene.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.csproj.GenerateResource.Cache
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.Questions.Modals.QuestionaryCreator.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.Questions.Modals.QuestionarySelector.resources
+D:\Development\C#\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.QuestionsForm.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.exe
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.pdb
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\bin\Debug\ChristianMatch.exe.config
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\bin\Debug\ChristianMatch.exe
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\bin\Debug\ChristianMatch.pdb
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.csprojResolveAssemblyReference.cache
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Baseball.GameConfig.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Baseball.GameScene.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Baseball.HitSelector.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.CharacterSelector.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.FastQuestionForm.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.QuestionForm.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.Questions.Modals.QuestionaryCreator.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.Questions.Modals.QuestionarySelector.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.QuestionsForm.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.TeamReadyDialog.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.SimpleQuestionForm.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.StepsSelector.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Common.WinnerForm.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.FastMatch.GameConfig.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.FastMatch.GameScene.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Help.HelpForm.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.MainForm.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.Properties.Resources.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.SimpleMatch.GameConfig.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.SimpleMatch.GameScene.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.WalkingUp.GameConfig.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.WalkingUp.GameScene.resources
+D:\Development\C#\.Net 3.5\ChristianMatch\ChristianMatch\obj\Debug\ChristianMatch.csproj.GenerateResource.Cache
