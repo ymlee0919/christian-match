@@ -637,15 +637,26 @@ body.nav-open {
 .hero-shot {
   transform: rotate(-1.2deg);
   border-radius: 16px;
-  overflow: hidden;
-  background: var(--paper);
+  /*overflow: hidden;*/
+  /*background: var(--paper);*/
   box-shadow: 0 20px 40px -16px rgba(11, 27, 58, .18);
 }
 
 .hero-shot img {
   display: block;
   width: 100%;
+  border-radius: 16px;
   height: auto;
+}
+
+.mockup {
+  position: relative;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 26px;
+  background: #0F2044;
+  box-shadow: var(--shadow-lg);
+  transform: rotate(-1.2deg);
 }
 
 .float-badge {
