@@ -131,9 +131,15 @@ namespace ChristianMatch
         {
             // Locate DefineTeamsBtn
             int midX = this.Width / 2 - this.defineTeamsBtn.Width / 2;
-            int midY = this.Height / 2 - this.topLabel.Height + this.topPanel.Height;
+            int midY = this.Height * 3/5 - this.topLabel.Height + this.topPanel.Height + this.welcomeLabel.Height / 2;
 
             this.defineTeamsBtn.Location = new Point(midX, midY);
+
+            // Locate welcome text 
+            midX = this.Width / 2 - this.welcomeLabel.Width / 2;
+            midY = this.Height / 2 - this.topLabel.Height + this.topPanel.Height - this.welcomeLabel.Height / 2;
+
+            this.welcomeLabel.Location = new Point(midX, midY);
 
             // Locate TeamsImage
             midX = this.Width / 2 - this.teamsImage.Width / 2;
@@ -141,26 +147,35 @@ namespace ChristianMatch
 
             this.teamsImage.Location = new Point(midX, midY);
 
+            // Dx from borders
+            int btnDx = (int)(this.Width * 0.1);
+            // Width for buttons bar
+            int barBtnWidth = (int)(this.Width - (2 * btnDx));
+
             // Locate SimpleMatchButton
-            midX = midX / 2 - this.simpleMatchBtn.Width / 2;
-            midY = this.topLabel.Height + this.topPanel.Height + 120;
+            midX = btnDx + barBtnWidth / 5 - this.simpleMatchBtn.Width / 2;
+            // Bottom of teamsImage
+            int btnY = midY + this.teamsImage.Height;
+
+            // Half between teamsImage bottom and screen bottom
+            midY = btnY + (this.Height - btnY - this.simpleMatchBtn.Height) / 2;
 
             this.simpleMatchBtn.Location = new Point(midX, midY);
 
             // Locate FastMatchButton
-            midX = midX * 3 / 2 + this.simpleMatchBtn.Width / 2;
-            midY = this.topLabel.Height + this.topPanel.Height + 250;
+            midX = btnDx + (int)((float)barBtnWidth * 0.4) - (this.fastMatchBtn.Width / 2);
+            // midY = this.topLabel.Height + this.topPanel.Height + 250;
 
             this.fastMatchBtn.Location = new Point(midX, midY);
 
             // Locate WalkingUpButton
-            midX = this.Width / 2 - this.wallkingUpBtn.Width * 2;
-            midY = midY + this.fastMatchBtn.Height + 30;
+            midX = btnDx + (int)((float)barBtnWidth * 0.6) - (this.wallkingUpBtn.Width / 2);
+            //midY = midY + this.fastMatchBtn.Height + 30;
 
             this.wallkingUpBtn.Location = new Point(midX, midY);
 
             // Locate BaseballBtn
-            midX = midX + this.wallkingUpBtn.Width * 3 / 2;
+            midX = btnDx + (int)((float)barBtnWidth * 0.8) - (this.baseballBtn.Width / 2);
             //midY = midY + this.fastMatchBtn.Height + 30;
             
             this.baseballBtn.Location = new Point(midX, midY);
@@ -179,17 +194,18 @@ namespace ChristianMatch
                 this.team1 = selector.Team1;
                 this.team2 = selector.Team2;
 
-                this.imgTeam1 = Common.Characters.Instance[this.team1].Image;
-                this.imgTeam2 = Common.Characters.Instance[this.team2].Image;
+                this.imgTeam1 = Common.Characters.Instance[this.team1].ImageLTR;
+                this.imgTeam2 = Common.Characters.Instance[this.team2].ImageRTL;
 
                 this.defineTeamsBtn.Hide();
+                this.welcomeLabel.Hide();
                 this.teamsImage.Invalidate();
 
                 this.simpleMatchBtn.Show();
                 this.fastMatchBtn.Show();
                 this.wallkingUpBtn.Show();
                 this.baseballBtn.Show();
-                this.helpBtn.Show();
+                // this.helpBtn.Show();
             }
         }
 

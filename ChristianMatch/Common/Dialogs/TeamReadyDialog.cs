@@ -11,10 +11,12 @@ namespace ChristianMatch.Common
     public partial class TeamReadyDialog : Form
     {
         private string character;
+        private bool ltr;
 
         public TeamReadyDialog()
         {
             InitializeComponent();
+            this.ltr = true;
         }
 
         private void continueBtn_Click(object sender, EventArgs e)
@@ -30,14 +32,24 @@ namespace ChristianMatch.Common
             }
         }
 
+        public bool LtR {
+            set {
+                this.ltr = value;
+            }
+        }
+
         private void characterImg_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawImage(Common.Characters.Instance[this.character].Image, 0, 0, 140, 140);
+            e.Graphics.DrawImage(
+                this.ltr
+                ? Common.Characters.Instance[this.character].ImageLTR
+                : Common.Characters.Instance[this.character].ImageRTL
+                , 0, 0, 140, 140);
         }
 
         private void TeamReadyDialog_Shown(object sender, EventArgs e)
         {
-            this.questionLabel.Text = Common.Characters.Instance[this.character].Name + ", ¿listo?";
+            this.questionLabel.Text = Common.Characters.Instance[this.character].Name + (Common.Characters.Instance[this.character].gender == 'm' ? ", ¿listo?" : ", ¿lista?");
         }
 
 

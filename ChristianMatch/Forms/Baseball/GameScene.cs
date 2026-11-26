@@ -6,6 +6,9 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+using ChristianMatch.Games.Baseball;
+using ChristianMatch.Games.Core;
+
 namespace ChristianMatch.Baseball
 {
     public partial class GameScene : Form
@@ -23,17 +26,15 @@ namespace ChristianMatch.Baseball
 
         private string team1, team2;
 
-        private Config config;
+        private BaseballGame game;
 
-        private GameController controller;
+        private ViewConfig view;
 
         private Common.QForm questionForm;
 
-        private Common.LevelQuestionsDispatcher dispatcher;
-
-        private Dictionary<int, HitType> hash;
-
         private Common.TeamReadyDialog dialog;
+
+        private Image sandTextureImage, wallTextureImage, grassTextureImage;
 
         public GameScene()
         {
@@ -62,19 +63,10 @@ namespace ChristianMatch.Baseball
 
             this.selector = new HitSelector();
 
-            this.team1 = null;
-            this.team2 = null;
+            this.team1 = this.team2 = null;
+            this.sandTextureImage = this.grassTextureImage = this.wallTextureImage = null;
 
-            this.controller = new GameController();
-            this.dispatcher = new Common.LevelQuestionsDispatcher();
             this.dialog = new Common.TeamReadyDialog();
-
-            this.hash = new Dictionary<int,HitType>();
-            this.hash[1] = HitType.Hit;
-            this.hash[2] = HitType.Hit;
-            this.hash[3] = HitType.Double;
-            this.hash[4] = HitType.Triple;
-            this.hash[5] = HitType.Homerun;
 
             InitializeComponent();
         }
@@ -84,7 +76,7 @@ namespace ChristianMatch.Baseball
             set
             {
                 this.team1 = value;
-                this.teams[value] = Common.Characters.Instance[value].Image;
+                this.teams[value] = Common.Characters.Instance[value].ImageLTR;
             }
         }
 
@@ -93,7 +85,7 @@ namespace ChristianMatch.Baseball
             set
             {
                 this.team2 = value;
-                this.teams[value] = Common.Characters.Instance[value].Image;
+                this.teams[value] = Common.Characters.Instance[value].ImageRTL;
             }
         }
 
@@ -101,15 +93,41 @@ namespace ChristianMatch.Baseball
         {
             set
             {
-                this.config = value;
-                this.controller.Init(this.team1, this.team2, this.config.Innings, true);
+                this.view.ShowPossibleAnswers = value.ShowPossibleAnswers;
+                this.view.LimitedTime = value.LimitedTime;
+                this.view.Time = value.Time;
 
-                this.dispatcher.Open(value.Questionarie);
+                BaseballConfig gc = new BaseballConfig();
+                gc.Questionary = value.Questionarie;
+                gc.Innings = value.Innings;
+
+                this.game = new BaseballGame(gc);
+                this.game.Start(this.team1, this.team2);
 
                 if (value.ShowPossibleAnswers)
                     this.questionForm = new Common.QuestionForm();
                 else
                     this.questionForm = new Common.SimpleQuestionForm();
+
+                if (value.LimitedTime)
+                    this.questionForm.SetMaxTime(value.Time);
+
+                // Disable the hit levels without questions in the questionary
+                int[] availableLevels = this.game.GetAvailableHitLevels();
+                for (int level = 1; level <= 5; level++)
+                {
+                    bool available = false;
+                    foreach (int l in availableLevels)
+                    {
+                        if (l == level)
+                        {
+                            available = true;
+                            break;
+                        }
+                    }
+                    if (!available)
+                        this.selector.DisableHitType(level);
+                }
             }
         }
 
@@ -117,7 +135,7 @@ namespace ChristianMatch.Baseball
         {
             get
             {
-                return this.controller.Team1Races * 10;
+                return (this.game == null) ? 0 : this.game.ScoreTeam1;
             }
         }
 
@@ -125,7 +143,7 @@ namespace ChristianMatch.Baseball
         {
             get
             {
-                return this.controller.Team2Races * 10;
+                return (this.game == null) ? 0 : this.game.ScoreTeam2;
             }
         }
 
@@ -141,7 +159,7 @@ namespace ChristianMatch.Baseball
 
             // Set the run label
             this.raceLabel.Location = new Point(width / 2 - this.raceLabel.Width / 2, height / 4 - this.raceLabel.Height / 2);
-            
+
             // Set the top limit
             this.topLimit.Add(new Point(0, height * 5 / 12));
             this.topLimit.Add(new Point(width / 3, height / 3));
@@ -175,13 +193,18 @@ namespace ChristianMatch.Baseball
             this.inField.Add(new Point(width / 4 + width / 30, height * 2 / 3 + height / 60));
 
             this.startBtn.Location = new Point(width / 9, height * 7 / 8);
-            this.endBtn.Location = new Point(width * 8 / 9 - this.endBtn.Width, height * 7 / 8);
+
+            //this.endBtn.Location = new Point(width * 8 / 9 - this.endBtn.Width, height * 7 / 8);
+            this.endBtn.Location = new Point(this.Width - this.endBtn.Width - 3, 3);
 
             this.mainScene.Invalidate();
         }
 
         private void mainScene_Paint(object sender, PaintEventArgs e)
         {
+            if (this.game == null)
+                return;
+
             e.Graphics.Clear(Color.White);
 
             // Prepare canvas
@@ -191,9 +214,13 @@ namespace ChristianMatch.Baseball
 
             // Prepare tools
             Brush background = new SolidBrush(Color.White);
-            Brush yard = new SolidBrush(Color.Green);
-            Brush wall = new SolidBrush(Color.Gray);
-            Brush soil = new SolidBrush(Color.LightSalmon);
+            //Brush yardBrush = new SolidBrush(Color.Green);
+            TextureBrush yardBrush = new TextureBrush(this.grassTextureImage);
+            //Brush wall = new SolidBrush(Color.Gray);
+            TextureBrush wall = new TextureBrush(this.wallTextureImage);
+            //Brush soil = new SolidBrush(Color.LightSalmon);
+            TextureBrush soil= new TextureBrush(this.sandTextureImage);
+            
             Brush board = new SolidBrush(Color.Black);
             Brush races = new SolidBrush(Color.Yellow);
 
@@ -206,25 +233,25 @@ namespace ChristianMatch.Baseball
             int width = this.ClientSize.Width, height = this.ClientSize.Height;
 
             e.Graphics.FillRectangle(background, 0, 0, this.mainScene.Width, this.mainScene.Height);
-            
+
             // Draw the yard
-            e.Graphics.FillPolygon(yard, this.yard.ToArray());
-            
+            e.Graphics.FillPolygon(yardBrush, this.yard.ToArray());
+
             // Draw the top wall
             e.Graphics.FillPolygon(wall, this.topLimit.ToArray());
             e.Graphics.DrawPolygon(border, this.topLimit.ToArray());
-            e.Graphics.DrawLine(border,this.topLimit[1], this.topLimit[6]);
-            e.Graphics.DrawLine(border,this.topLimit[2], this.topLimit[5]);
+            e.Graphics.DrawLine(border, this.topLimit[1], this.topLimit[6]);
+            e.Graphics.DrawLine(border, this.topLimit[2], this.topLimit[5]);
 
             // Draw the center soil
             // Calculate the angle
             double ang = Math.Atan((double)height / (double)width);
             ang = ang * 180 / Math.PI;
 
-            e.Graphics.FillPie(soil, -20, height / 2 - height / 24, width + 40, height * 6 / 7 + height / 12 + 20, 180 + (int)ang, 180 - 2 * (int)ang); 
+            e.Graphics.FillPie(soil, -20, height / 2 - height / 24, width + 40, height * 6 / 7 + height / 12 + 20, 180 + (int)ang, 180 - 2 * (int)ang);
 
             // Draw the inField
-            e.Graphics.FillPolygon(yard, this.inField.ToArray());
+            e.Graphics.FillPolygon(yardBrush, this.inField.ToArray());
 
             // Draw the home circle
             e.Graphics.FillEllipse(soil, (width / 2) - (width / 16), this.bases[0].Y - (height / 18), width / 8, height / 9);
@@ -274,9 +301,9 @@ namespace ChristianMatch.Baseball
             //// Locate players (90px X 130px)
             int h = this.mainScene.Height / 10; int w = 5 * h / 8;
             // Pitcher
-            e.Graphics.DrawImage(this.players["Pitcher"], this.bases[0].X - (w/2), this.bases[1].Y - w * 3 / 4, w, h);
+            e.Graphics.DrawImage(this.players["Pitcher"], this.bases[0].X - (w / 2), this.bases[1].Y - w * 3 / 4, w, h);
             // Catcher
-            e.Graphics.DrawImage(this.players["Catcher"], this.bases[0].X - (w / 2), this.bases[0].Y - h/3, w, h);
+            e.Graphics.DrawImage(this.players["Catcher"], this.bases[0].X - (w / 2), this.bases[0].Y - h / 3, w, h);
             // First Base
             e.Graphics.DrawImage(this.players["FirstBase"], this.bases[1].X - ((this.bases[1].X - this.bases[2].X) / 4) - (w / 2), this.bases[1].Y - 5 * ((this.bases[1].Y - this.bases[2].Y) / 4) - (h / 3), w, h);
             // Second Base
@@ -290,48 +317,58 @@ namespace ChristianMatch.Baseball
             // Left field
             e.Graphics.DrawImage(this.players["LeftField"], width / 4 - (w / 2), (height * 3 / 8) - (h / 3), w, h);
             // Right field
-            e.Graphics.DrawImage(this.players["RightField"], width * 3/ 4 - (w / 2), (height * 3 / 8) - (h / 3), w, h);
+            e.Graphics.DrawImage(this.players["RightField"], width * 3 / 4 - (w / 2), (height * 3 / 8) - (h / 3), w, h);
             // Batter
             e.Graphics.DrawImage(this.players["Batter"], this.bases[0].X - (w * 6 / 5), this.bases[0].Y - h * 4 / 5, w, h);
 
             // Draw runners
-            if(this.controller.BaseBusy(1))
-                e.Graphics.DrawImage(this.players["Runner"], this.bases[1].X - w, this.bases[1].Y  - h, w, h);
-            if (this.controller.BaseBusy(2))
-                e.Graphics.DrawImage(this.players["Runner"], this.bases[2].X - w/2, this.bases[2].Y - h, w, h);
-            if (this.controller.BaseBusy(3))
+            if (this.game.BaseBusy(1))
+                e.Graphics.DrawImage(this.players["Runner"], this.bases[1].X - w, this.bases[1].Y - h, w, h);
+            if (this.game.BaseBusy(2))
+                e.Graphics.DrawImage(this.players["Runner"], this.bases[2].X - w / 2, this.bases[2].Y - h, w, h);
+            if (this.game.BaseBusy(3))
                 e.Graphics.DrawImage(this.players["Runner"], this.bases[3].X, this.bases[3].Y - h, w, h);
 
             // Draw batter circle
-            e.Graphics.DrawEllipse(batterCircle, width / 10, height * 9 / 13, width / 8, height / 9);
-            e.Graphics.DrawEllipse(coveringCircle, width * 9 / 10 - width / 8, height * 9 / 13, width / 8, height / 9);
+            e.Graphics.DrawEllipse(this.game.BatterTeam == this.team1 ? batterCircle : coveringCircle, width / 10, height * 9 / 13, width / 8, height / 9);
+            e.Graphics.DrawEllipse(this.game.BatterTeam == this.team2 ? batterCircle : coveringCircle, width * 9 / 10 - width / 8, height * 9 / 13, width / 8, height / 9);
 
             // Draw number of outs
-            if (this.controller.Outs > 0)
+            if (this.game.Outs > 0)
             {
                 Font outs = new Font(new FontFamily("Courier New"), 22, FontStyle.Bold, GraphicsUnit.Pixel);
-                string outsTxt = (this.controller.Outs == 1) ? "1 out" : "2 outs";
+                string outsTxt = (this.game.Outs == 1) ? "1 out" : "2 outs";
                 SizeF sz = e.Graphics.MeasureString(outsTxt, outs);
-                e.Graphics.DrawString(outsTxt, outs, soil, width / 10 + width / 16 - sz.Width / 2, height * 9 / 13 + height / 20 + sz.Height * 2);
+                float outsXPos = this.game.BatterTeam == this.team1 
+                    ? width / 10 + width / 16 - sz.Width / 2
+                    : width * 9 / 10 - width / 8 + width / 16 - sz.Width / 2;
+                e.Graphics.DrawString(outsTxt, outs, soil, outsXPos, height * 9 / 13 + height / 20 + sz.Height * 2);
             }
 
             // Draw the name of the teams
             Font f = new Font(new FontFamily("Forte"), 25, FontStyle.Bold, GraphicsUnit.Pixel);
 
-            string team = Common.Characters.Instance[this.controller.BatterTeam].Name;
+            //string team = Common.Characters.Instance[this.game.BatterTeam].Name;
+            string team = Common.Characters.Instance[this.team1].Name;
             SizeF s = e.Graphics.MeasureString(team, f);
             e.Graphics.DrawString(team, f, background, width / 10 + width / 16 - s.Width / 2, height * 9 / 13 + height / 27);
 
-            team = Common.Characters.Instance[this.controller.CoverTeam].Name;
+            //team = Common.Characters.Instance[this.game.CoverTeam].Name;
+            team = Common.Characters.Instance[this.team2].Name;
             s = e.Graphics.MeasureString(team, f);
             e.Graphics.DrawString(team, f, background, width * 9 / 10 - width / 8 + width / 16 - s.Width / 2, height * 9 / 13 + height / 27);
 
             // Draw the images of the teams
-            e.Graphics.DrawImage(this.teams[this.controller.BatterTeam], width / 13, height / 15, width / 10, width / 10);
-            e.Graphics.DrawImage(this.teams[this.controller.CoverTeam], width * 12 / 13 - width / 10, height / 15, width / 10, width / 10);
+            //e.Graphics.DrawImage(this.teams[this.game.BatterTeam], width / 13, height / 15, width / 10, width / 10);
+            e.Graphics.DrawImage(this.teams[this.team1], width / 13, height / 15, width / 10, width / 10);
+            //e.Graphics.DrawImage(this.teams[this.game.CoverTeam], width * 12 / 13 - width / 10, height / 15, width / 10, width / 10);
+            e.Graphics.DrawImage(this.teams[this.team2], width * 12 / 13 - width / 10, height / 15, width / 10, width / 10);
 
-            e.Graphics.DrawImage(this.players["Bat"], width / 13 + width / 20, height / 15 + width / 24, width / 15, width / 15);
-            e.Graphics.DrawImage(this.players["Mitt"], width * 12 / 13 - width / 10 - width / 20, height / 15 + width / 24, width / 15, width / 15);
+            e.Graphics.DrawImage(this.players[this.game.BatterTeam == this.team1 ? "Bat" : "Mitt"], width / 13 + width / 20, height / 15 + width / 24, width / 15, width / 15);
+            e.Graphics.DrawImage(this.players[this.game.BatterTeam == this.team2 ? "Bat" : "Mitt"], width * 12 / 13 - width / 10 - width / 20, height / 15 + width / 24, width / 15, width / 15);
+
+            width = this.ClientSize.Width;
+            this.startBtn.Location = new Point(this.game.BatterTeam == this.team1 ? width / 9 : width * 8 / 9 - this.startBtn.Width, height * 7 / 8);
 
             //// Draw scoreboard
             Font score = new Font(new FontFamily("Courier New"), 20, FontStyle.Bold, GraphicsUnit.Pixel);
@@ -350,91 +387,127 @@ namespace ChristianMatch.Baseball
             int ptr = 0, // Pointer for each inning
                 space = (width * 17 / 24 - width * 7 / 24) * 5 / 7, // Space for the result
                 offset = (space * 2 / 7) * 3 / 5 + 15, // Offset for the first inning
-                dX = space / (this.controller.Innings + 1);
-            foreach (BoardScore bs in this.controller.ScoreBoard)
+                dX = space / (this.game.Innings + 1);
+            foreach (Games.Baseball.BoardScore bs in this.game.ScoreBoard)
             {
                 ptr++;
                 e.Graphics.DrawString(bs.Team1.ToString(), score, background, (width * 7 / 24 + offset) + ptr * dX, height / 15);
                 e.Graphics.DrawString(bs.Team2.ToString(), score, background, (width * 7 / 24 + offset) + ptr * dX, height / 7);
             }
             // Draw the number of races
-            e.Graphics.DrawString(this.controller.Team1Races.ToString(), score, races, (width * 17 / 24) - (dX / 2), height / 15);
-            e.Graphics.DrawString(this.controller.Team2Races.ToString(), score, races, (width * 17 / 24) - (dX / 2), height / 7);
-            // Draw a scuare arround the current inning and batter into score board
-            if(this.controller.CurrentInning <= this.controller.Innings)
-                e.Graphics.DrawRectangle(marker, (width * 7 / 24 + offset) + this.controller.CurrentInning * dX - 4, (this.team1 == this.controller.BatterTeam) ? height / 15 - 3 : height / 7 - 3, 26, 26);
+            e.Graphics.DrawString(this.GetTotalRunsTeam1().ToString(), score, races, (width * 17 / 24) - (dX / 2), height / 15);
+            e.Graphics.DrawString(this.GetTotalRunsTeam2().ToString(), score, races, (width * 17 / 24) - (dX / 2), height / 7);
+            // Draw a square around the current inning and batter into score board
+            if (this.game.CurrentInning <= this.game.Innings)
+                e.Graphics.DrawRectangle(marker, (width * 7 / 24 + offset) + this.game.CurrentInning * dX - 4, (this.team1 == this.game.BatterTeam) ? height / 15 - 3 : height / 7 - 3, 26, 26);
         }
 
         private void startBtn_Click(object sender, EventArgs e)
         {
+            if (this.game == null || this.game.IsFinished)
+                return;
+
             this.selector.ShowDialog(this);
             int level = this.selector.SelectedValue;
 
-            Common.Question q = this.dispatcher.GetNext(level);
-            this.questionForm.SetTheQuestion(q);
+            // The selector was closed without choosing a level
+            if (level < 1 || level > 5)
+                return;
 
+            // The level has no questions left
+            if (!this.game.IsHitLevelAvailable(level))
+            {
+                this.selector.DisableHitType(level);
+                return;
+            }
+
+            Common.Question q = this.game.NextQuestion(level);
+            if (q == null)
+            {
+                MessageBox.Show(this, "Sorry.\nSe han agotado las preguntas...", "Oops...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.GameOver();
+                return;
+            }
+
+            this.questionForm.SetTheQuestion(q);
             System.Windows.Forms.DialogResult result = this.questionForm.ShowDialog(this);
             if (result == System.Windows.Forms.DialogResult.OK)
-            {
-                if (this.controller.HitAction(this.hash[level]))
-                {
-                    this.raceTimer.Start();
-                    Common.Sounds.SoundPlayer.Instance.Play("applause");
-                }
-                if (!this.dispatcher.isAllowed(level))
-                    this.selector.DisableHitType(level);
-            }
+                this.game.Answer(AnswerOutcome.Correct);
             else
-            {
-                this.controller.HitAction(HitType.Out);
-                Common.Sounds.SoundPlayer.Instance.Play("out");
-            }
+                this.game.Answer(AnswerOutcome.Incorrect);
 
             this.questionForm.Restart();
 
             this.mainScene.Invalidate();
 
-            // Check the questions have ended
-            if (this.dispatcher.Remainder == 0)
+            if (this.game.LastRaceScored)
             {
-                MessageBox.Show(this, "Lo sentimos.\nLas preguntas se han agotado...", "Upsss...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.raceTimer.Start();
+                Common.Sounds.SoundPlayer.Instance.Play("applause");
+            }
+
+            if (this.game.LastAppliedHit == Games.Baseball.HitType.Out)
+                Common.Sounds.SoundPlayer.Instance.Play("out");
+
+            if (!this.game.IsHitLevelAvailable(level))
+                this.selector.DisableHitType(level);
+
+            if (this.game.IsFinished)
+            {
+                if (this.game.QuestionsExhausted)
+                    MessageBox.Show(this, "Sorry.\nSe han agotado las preguntas...", "Oops...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.GameOver();
                 return;
             }
 
-            // Check en of inning
-            if (result != System.Windows.Forms.DialogResult.OK && this.controller.Outs == 0 && !this.controller.EndOfGame)
+            // Check end of inning
+            if (result != System.Windows.Forms.DialogResult.OK && this.game.Outs == 0 && !this.game.EndOfGame)
             {
                 this.startTimer.Start();
             }
-
-            // Check the game is over
-            if (this.controller.EndOfGame)
-                this.GameOver();
             else
+            {
                 this.FlashTimer.Start();
+            }
         }
 
         private void GameOver()
         {
-            int r1 = this.controller.Team1Races, r2 = this.controller.Team2Races;
-            if (r1 == r2)
+            this.game.Finish();
+
+            if (this.game.IsTie)
                 MessageBox.Show(this, "Juego terminado y EMPATADO.\n\n Buen trabajo equipos!!!", "Fin del Juego", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
                 Common.WinnerForm winner = new Common.WinnerForm();
-                winner.Winner = (r1 > r2) ? this.team1 : this.team2;
+                winner.Winner = this.game.Winner;
                 winner.ShowDialog();
             }
 
             this.startBtn.Hide();
         }
 
+        private int GetTotalRunsTeam1()
+        {
+            int total = 0;
+            foreach (Games.Baseball.BoardScore bs in this.game.ScoreBoard)
+                total += bs.Team1;
+            return total;
+        }
+
+        private int GetTotalRunsTeam2()
+        {
+            int total = 0;
+            foreach (Games.Baseball.BoardScore bs in this.game.ScoreBoard)
+                total += bs.Team2;
+            return total;
+        }
+
         private void endBtn_Click(object sender, EventArgs e)
         {
-            if (this.controller.Team1Races != 0 || this.controller.Team2Races != 0)
+            if (this.game != null && (this.game.ScoreTeam1 != 0 || this.game.ScoreTeam2 != 0))
                 this.GameOver();
-            
+
             this.DialogResult = System.Windows.Forms.DialogResult.Abort;
         }
 
@@ -446,7 +519,8 @@ namespace ChristianMatch.Baseball
         private void startTimer_Tick(object sender, EventArgs e)
         {
             this.startTimer.Stop();
-            this.dialog.Character = this.controller.BatterTeam;
+            this.dialog.Character = this.game.BatterTeam;
+            this.dialog.LtR = this.game.BatterTeam == this.team1;
             this.dialog.ShowDialog(this);
             this.FlashTimer.Start();
         }
@@ -477,9 +551,9 @@ namespace ChristianMatch.Baseball
         }
 
         private int raceTicks = 0;
-
+        
         private void raceTimer_Tick(object sender, EventArgs e)
-        {   
+        {
             this.raceTicks++;
             this.raceLabel.Visible = !this.raceLabel.Visible;
 
@@ -491,6 +565,18 @@ namespace ChristianMatch.Baseball
             }
         }
 
-        
+        private void GameScene_Load(object sender, EventArgs e)
+        {
+            this.grassTextureImage = System.Drawing.Image.FromFile(System.Environment.CurrentDirectory + "\\resources\\textures\\grass-texture.jpg");
+            this.wallTextureImage = System.Drawing.Image.FromFile(System.Environment.CurrentDirectory + "\\resources\\textures\\wall-texture.jpg");
+            this.sandTextureImage = System.Drawing.Image.FromFile(System.Environment.CurrentDirectory + "\\resources\\textures\\sand-texture.jpg");
+        }
+
+        private void GameScene_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.grassTextureImage != null) this.grassTextureImage.Dispose();
+            if (this.wallTextureImage != null) this.wallTextureImage.Dispose();
+            if (this.sandTextureImage != null) this.sandTextureImage.Dispose();
+        }
     }
 }

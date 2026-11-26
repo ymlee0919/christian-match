@@ -6,6 +6,9 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+using ChristianMatch.Games.Core;
+using ChristianMatch.Games.SimpleMatch;
+
 namespace ChristianMatch.SimpleMatch
 {
     public partial class GameScene : Form
@@ -14,13 +17,11 @@ namespace ChristianMatch.SimpleMatch
 
         private Image imgTeam1, imgTeam2;
 
-        private Config config;
+        private SimpleMatchGame game;
 
-        private int pointsTeam1, pointsTeam2;
+        private ViewConfig view;
 
         private Common.TeamReadyDialog dialog;
-
-        private Common.CoupleQuestionsDispatcher dispatcher;
 
         private Common.QForm questionForm;
 
@@ -29,7 +30,6 @@ namespace ChristianMatch.SimpleMatch
             InitializeComponent();
 
             this.dialog = new Common.TeamReadyDialog();
-            this.dispatcher = new Common.CoupleQuestionsDispatcher();
         }
 
         public string Team1
@@ -38,6 +38,7 @@ namespace ChristianMatch.SimpleMatch
             {
                 this.team1 = value;
                 this.nameTeam1 = Common.Characters.Instance[value].Name;
+                this.imgTeam1 = Common.Characters.Instance[value].ImageLTR;
             }
         }
 
@@ -47,6 +48,7 @@ namespace ChristianMatch.SimpleMatch
             {
                 this.team2 = value;
                 this.nameTeam2 = Common.Characters.Instance[value].Name;
+                this.imgTeam2 = Common.Characters.Instance[value].ImageRTL;
             }
         }
 
@@ -54,7 +56,7 @@ namespace ChristianMatch.SimpleMatch
         {
             get
             {
-                return this.pointsTeam1;
+                return (this.game == null) ? 0 : this.game.ScoreTeam1;
             }
         }
 
@@ -62,7 +64,7 @@ namespace ChristianMatch.SimpleMatch
         {
             get
             {
-                return this.pointsTeam2;
+                return (this.game == null) ? 0 : this.game.ScoreTeam2;
             }
         }
 
@@ -70,21 +72,33 @@ namespace ChristianMatch.SimpleMatch
         {
             set
             {
-                this.config = value;
-                this.dispatcher.Open(value.Questionarie);
-                
+                this.view.ShowPossibleAnswers = value.ShowPossibleAnswers;
+                this.view.LimitedTime = value.LimitedTime;
+                this.view.Time = value.Time;
+
+                SimpleMatchConfig gc = new SimpleMatchConfig();
+                gc.Questionary = value.Questionarie;
+                gc.EqualValue = value.EqualValue;
+                gc.QuestionValue = value.QuestionValue;
+
+                this.game = new SimpleMatchGame(gc);
+                this.game.Start(this.team1, this.team2);
+
                 if (value.ShowPossibleAnswers)
                     this.questionForm = new Common.QuestionForm();
                 else
                     this.questionForm = new Common.SimpleQuestionForm();
 
-                if(value.LimitedTime)
+                if (value.LimitedTime)
                     this.questionForm.SetMaxTime(value.Time);
             }
         }
 
         private void mainScene_Paint(object sender, PaintEventArgs e)
         {
+            if (this.game == null)
+                return;
+
             // Draw the characters
             int midX = this.mainScene.Width / 2;
             int midY = this.mainScene.Height / 2;
@@ -97,7 +111,7 @@ namespace ChristianMatch.SimpleMatch
             Font f = new Font(new FontFamily("Forte"), 35, FontStyle.Bold, GraphicsUnit.Pixel);
             Font vs = new Font(new FontFamily("Kristen ITC"), 50, FontStyle.Bold, GraphicsUnit.Pixel);
             Font points = new Font(new FontFamily("Courier New"), 70, FontStyle.Bold, GraphicsUnit.Pixel);
-            
+
             Brush namesBruch = new SolidBrush(Color.Navy);
             Brush brush = new SolidBrush(Color.Brown);
             Brush pointBruch = new SolidBrush(Color.DarkRed);
@@ -105,17 +119,17 @@ namespace ChristianMatch.SimpleMatch
             // Write team names
             e.Graphics.DrawString(this.nameTeam1, f, namesBruch, midX - 190, midY + 200);
             e.Graphics.DrawString(this.nameTeam2, f, namesBruch, midX + 100, midY + 200);
-            
+
             // Write Vs label
             e.Graphics.DrawString("Vs", vs, brush, midX - 20, midY + 190);
             // Write points of teams
-            e.Graphics.DrawString(this.pointsTeam1.ToString(), points, pointBruch, midX - 225, midY - 250);
-            e.Graphics.DrawString(this.pointsTeam2.ToString(), points, pointBruch, midX + 175, midY - 250);
+            e.Graphics.DrawString(this.game.ScoreTeam1.ToString(), points, pointBruch, midX - 225, midY - 250);
+            e.Graphics.DrawString(this.game.ScoreTeam2.ToString(), points, pointBruch, midX + 175, midY - 250);
         }
 
         private void endGameBtn_Click(object sender, EventArgs e)
         {
-            if (this.pointsTeam1 != 0 || this.pointsTeam2 != 0)
+            if (this.game != null && (this.game.ScoreTeam1 != 0 || this.game.ScoreTeam2 != 0))
                 this.GameOver();
             else
                 this.DialogResult = System.Windows.Forms.DialogResult.Abort;
@@ -123,10 +137,6 @@ namespace ChristianMatch.SimpleMatch
 
         private void GameScene_Shown(object sender, EventArgs e)
         {
-            this.imgTeam1 = Common.Characters.Instance[this.team1].Image;
-            this.imgTeam2 = Common.Characters.Instance[this.team2].Image;
-
-            // Load the questionary
             this.FlashTimer.Start();
         }
 
@@ -139,60 +149,64 @@ namespace ChristianMatch.SimpleMatch
 
         private void startBtn_Click(object sender, EventArgs e)
         {
-            this.dialog.Character = this.team1;
-            this.dialog.ShowDialog(this);
+            if (this.game == null || this.game.IsFinished)
+                return;
 
-            // Prepare the first quiestion
-            Common.Question q = this.dispatcher.GetNext();
-            this.questionForm.SetTheQuestion(q);
-            System.Windows.Forms.DialogResult result = this.questionForm.ShowDialog(this);
-            if (result == System.Windows.Forms.DialogResult.OK)
-            {
-                if(this.config.EqualValue)
-                    this.pointsTeam1 += this.config.QuestionValue;
-                else
-                    this.pointsTeam1 += q.Level * 5;
-            }
-            this.questionForm.Restart();
+            if (!this.PlayTurn())
+                return;
 
             System.Threading.Thread.Sleep(2000);
 
-            this.dialog.Character = this.team2;
-            this.dialog.ShowDialog(this);
+            if (!this.PlayTurn())
+                return;
 
-            // Prepare the second question
-            q = this.dispatcher.GetNext();
-            this.questionForm.SetTheQuestion(q);
-            result = this.questionForm.ShowDialog(this);
-            if (result == System.Windows.Forms.DialogResult.OK)
+            if (this.game.IsFinished)
             {
-                if (this.config.EqualValue)
-                    this.pointsTeam2 += this.config.QuestionValue;
-                else
-                    this.pointsTeam2 += q.Level * 5;
-            }
-            this.questionForm.Restart();
-
-            this.mainScene.Invalidate();
-
-            // Check the questionary is not empty
-            if (this.dispatcher.Remainder <= 2)
-            {
-                MessageBox.Show(this, "Lo sentimos.\nLas preguntas se han agotado...", "Upsss...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (this.game.QuestionsExhausted)
+                    MessageBox.Show(this, "Sorry.\nSe han agotado las preguntas...", "Oops...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.GameOver();
             }
             else
                 this.FlashTimer.Start();
         }
 
+        private bool PlayTurn()
+        {
+            Common.Question q = this.game.NextQuestion();
+            if (q == null)
+            {
+                MessageBox.Show(this, "Sorry.\nSe han agotado las preguntas...", "Oops...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.GameOver();
+                return false;
+            }
+
+            this.dialog.Character = this.game.CurrentTeam;
+            this.dialog.LtR = this.game.CurrentTeam == this.team1;
+            this.dialog.ShowDialog(this);
+
+            this.questionForm.SetTheQuestion(q);
+            System.Windows.Forms.DialogResult result = this.questionForm.ShowDialog(this);
+            if (result == System.Windows.Forms.DialogResult.OK)
+                this.game.Answer(AnswerOutcome.Correct);
+            else
+                this.game.Answer(AnswerOutcome.Incorrect);
+
+            this.questionForm.Restart();
+
+            this.mainScene.Invalidate();
+            return true;
+        }
+
         private void GameOver()
         {
-            if (this.pointsTeam1 == this.pointsTeam2)
+            this.game.Finish();
+
+            if (this.game.IsTie)
                 MessageBox.Show(this, "Juego terminado y EMPATADO.\n\n Buen trabajo equipos!!!", "Fin del Juego", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
                 Common.WinnerForm winner = new Common.WinnerForm();
-                winner.Winner = (this.pointsTeam1 > this.pointsTeam2) ? this.team1 : this.team2;
+                winner.Winner = this.game.Winner;
                 winner.ShowDialog();
             }
 

@@ -44,23 +44,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Baseball\GameConfig.cs">
+    <Compile Include="Forms\Baseball\GameConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Baseball\GameConfig.Designer.cs">
+    <Compile Include="Forms\Baseball\GameConfig.Designer.cs">
       <DependentUpon>GameConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="Baseball\GameController.cs" />
-    <Compile Include="Baseball\GameScene.cs">
+    <Compile Include="Forms\Baseball\GameController.cs" />
+    <Compile Include="Forms\Baseball\GameScene.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Baseball\GameScene.Designer.cs">
+    <Compile Include="Forms\Baseball\GameScene.Designer.cs">
       <DependentUpon>GameScene.cs</DependentUpon>
     </Compile>
-    <Compile Include="Baseball\HitSelector.cs">
+    <Compile Include="Forms\Baseball\HitSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Baseball\HitSelector.Designer.cs">
+    <Compile Include="Forms\Baseball\HitSelector.Designer.cs">
       <DependentUpon>HitSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\Characters\Characters.cs" />
@@ -134,24 +134,39 @@
       <DependentUpon>WinnerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\Sounds\SoundPlayer.cs" />
-    <Compile Include="FastMatch\GameConfig.cs">
+    <Compile Include="Forms\FastMatch\GameConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FastMatch\GameConfig.Designer.cs">
+    <Compile Include="Forms\FastMatch\GameConfig.Designer.cs">
       <DependentUpon>GameConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="FastMatch\GameScene.cs">
+    <Compile Include="Forms\FastMatch\GameScene.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FastMatch\GameScene.Designer.cs">
+    <Compile Include="Forms\FastMatch\GameScene.Designer.cs">
       <DependentUpon>GameScene.cs</DependentUpon>
     </Compile>
-    <Compile Include="Help\HelpForm.cs">
+    <Compile Include="Forms\Help\HelpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Help\HelpForm.Designer.cs">
+    <Compile Include="Forms\Help\HelpForm.Designer.cs">
       <DependentUpon>HelpForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Games\Baseball\BaseballConfig.cs" />
+    <Compile Include="Games\Baseball\BaseballGame.cs" />
+    <Compile Include="Games\Baseball\BaseballState.cs" />
+    <Compile Include="Games\Core\AnswerOutcome.cs" />
+    <Compile Include="Games\Core\GameBase.cs" />
+    <Compile Include="Games\Core\GameStatus.cs" />
+    <Compile Include="Games\Core\IGame.cs" />
+    <Compile Include="Games\Core\QuestionBag.cs" />
+    <Compile Include="Games\Core\ViewConfig.cs" />
+    <Compile Include="Games\FastMatch\FastMatchConfig.cs" />
+    <Compile Include="Games\FastMatch\FastMatchGame.cs" />
+    <Compile Include="Games\SimpleMatch\SimpleMatchConfig.cs" />
+    <Compile Include="Games\SimpleMatch\SimpleMatchGame.cs" />
+    <Compile Include="Games\WalkingUp\WalkingUpConfig.cs" />
+    <Compile Include="Games\WalkingUp\WalkingUpGame.cs" />
     <Compile Include="i18n\Dictionary.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -161,37 +176,37 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SimpleMatch\GameConfig.cs">
+    <Compile Include="Forms\SimpleMatch\GameConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SimpleMatch\GameConfig.Designer.cs">
+    <Compile Include="Forms\SimpleMatch\GameConfig.Designer.cs">
       <DependentUpon>GameConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="SimpleMatch\GameScene.cs">
+    <Compile Include="Forms\SimpleMatch\GameScene.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SimpleMatch\GameScene.Designer.cs">
+    <Compile Include="Forms\SimpleMatch\GameScene.Designer.cs">
       <DependentUpon>GameScene.cs</DependentUpon>
     </Compile>
-    <Compile Include="WalkingUp\GameConfig.cs">
+    <Compile Include="Forms\WalkingUp\GameConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WalkingUp\GameConfig.Designer.cs">
+    <Compile Include="Forms\WalkingUp\GameConfig.Designer.cs">
       <DependentUpon>GameConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="WalkingUp\GameScene.cs">
+    <Compile Include="Forms\WalkingUp\GameScene.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WalkingUp\GameScene.Designer.cs">
+    <Compile Include="Forms\WalkingUp\GameScene.Designer.cs">
       <DependentUpon>GameScene.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Baseball\GameConfig.resx">
+    <EmbeddedResource Include="Forms\Baseball\GameConfig.resx">
       <DependentUpon>GameConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Baseball\GameScene.resx">
+    <EmbeddedResource Include="Forms\Baseball\GameScene.resx">
       <DependentUpon>GameScene.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Baseball\HitSelector.resx">
+    <EmbeddedResource Include="Forms\Baseball\HitSelector.resx">
       <DependentUpon>HitSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Common\Characters\CharacterSelector.resx">
@@ -224,13 +239,13 @@
     <EmbeddedResource Include="Common\Dialogs\WinnerForm.resx">
       <DependentUpon>WinnerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FastMatch\GameConfig.resx">
+    <EmbeddedResource Include="Forms\FastMatch\GameConfig.resx">
       <DependentUpon>GameConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FastMatch\GameScene.resx">
+    <EmbeddedResource Include="Forms\FastMatch\GameScene.resx">
       <DependentUpon>GameScene.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Help\HelpForm.resx">
+    <EmbeddedResource Include="Forms\Help\HelpForm.resx">
       <DependentUpon>HelpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
@@ -246,16 +261,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SimpleMatch\GameConfig.resx">
+    <EmbeddedResource Include="Forms\SimpleMatch\GameConfig.resx">
       <DependentUpon>GameConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SimpleMatch\GameScene.resx">
+    <EmbeddedResource Include="Forms\SimpleMatch\GameScene.resx">
       <DependentUpon>GameScene.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WalkingUp\GameConfig.resx">
+    <EmbeddedResource Include="Forms\WalkingUp\GameConfig.resx">
       <DependentUpon>GameConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WalkingUp\GameScene.resx">
+    <EmbeddedResource Include="Forms\WalkingUp\GameScene.resx">
       <DependentUpon>GameScene.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
@@ -292,6 +307,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\exit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

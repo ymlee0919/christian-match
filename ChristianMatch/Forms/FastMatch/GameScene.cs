@@ -6,6 +6,9 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+using ChristianMatch.Games.Core;
+using ChristianMatch.Games.FastMatch;
+
 namespace ChristianMatch.FastMatch
 {
     public partial class GameScene : Form
@@ -14,18 +17,15 @@ namespace ChristianMatch.FastMatch
 
         private Image imgTeam1, imgTeam2;
 
-        private Config config;
+        private FastMatchGame game;
 
-        private int pointsTeam1, pointsTeam2;
-
-        private Common.SimpleQuestionsDispatcher dispatcher;
+        private ViewConfig view;
 
         private Common.FastQuestionForm questionForm;
 
         public GameScene()
         {
             InitializeComponent();
-            this.dispatcher = new Common.SimpleQuestionsDispatcher();
         }
 
         public string Team1
@@ -34,6 +34,7 @@ namespace ChristianMatch.FastMatch
             {
                 this.team1 = value;
                 this.nameTeam1 = Common.Characters.Instance[value].Name;
+                this.imgTeam1 = Common.Characters.Instance[value].ImageLTR;
             }
         }
 
@@ -43,6 +44,7 @@ namespace ChristianMatch.FastMatch
             {
                 this.team2 = value;
                 this.nameTeam2 = Common.Characters.Instance[value].Name;
+                this.imgTeam2 = Common.Characters.Instance[value].ImageRTL;
             }
         }
 
@@ -50,7 +52,7 @@ namespace ChristianMatch.FastMatch
         {
             get
             {
-                return this.pointsTeam1;
+                return (this.game == null) ? 0 : this.game.ScoreTeam1;
             }
         }
 
@@ -58,7 +60,7 @@ namespace ChristianMatch.FastMatch
         {
             get
             {
-                return this.pointsTeam2;
+                return (this.game == null) ? 0 : this.game.ScoreTeam2;
             }
         }
 
@@ -66,8 +68,16 @@ namespace ChristianMatch.FastMatch
         {
             set
             {
-                this.config = value;
-                this.dispatcher.Open(value.Questionarie);
+                this.view.LimitedTime = value.LimitedTime;
+                this.view.Time = value.Time;
+
+                FastMatchConfig gc = new FastMatchConfig();
+                gc.Questionary = value.Questionarie;
+                gc.EqualValue = value.EqualValue;
+                gc.QuestionValue = value.QuestionValue;
+
+                this.game = new FastMatchGame(gc);
+                this.game.Start(this.team1, this.team2);
 
                 // Build the question form
                 this.questionForm = new Common.FastQuestionForm();
@@ -76,12 +86,14 @@ namespace ChristianMatch.FastMatch
 
                 if (value.LimitedTime)
                     this.questionForm.SetMaxTime(value.Time);
-
             }
         }
 
         private void mainScene_Paint(object sender, PaintEventArgs e)
         {
+            if (this.game == null)
+                return;
+
             // Draw the characters
             int midX = this.mainScene.Width / 2;
             int midY = this.mainScene.Height / 2;
@@ -106,8 +118,8 @@ namespace ChristianMatch.FastMatch
             // Write Vs label
             e.Graphics.DrawString("Vs", vs, brush, midX - 20, midY + 190);
             // Write points of teams
-            e.Graphics.DrawString(this.pointsTeam1.ToString(), points, pointBruch, midX - 225, midY - 250);
-            e.Graphics.DrawString(this.pointsTeam2.ToString(), points, pointBruch, midX + 175, midY - 250);
+            e.Graphics.DrawString(this.game.ScoreTeam1.ToString(), points, pointBruch, midX - 225, midY - 250);
+            e.Graphics.DrawString(this.game.ScoreTeam2.ToString(), points, pointBruch, midX + 175, midY - 250);
         }
 
         private void GameScene_Resize(object sender, EventArgs e)
@@ -119,7 +131,7 @@ namespace ChristianMatch.FastMatch
 
         private void endGameBtn_Click(object sender, EventArgs e)
         {
-            if (this.pointsTeam1 != 0 || this.pointsTeam2 != 0)
+            if (this.game != null && (this.game.ScoreTeam1 != 0 || this.game.ScoreTeam2 != 0))
                 this.GameOver();
             else
                 this.DialogResult = System.Windows.Forms.DialogResult.Abort;
@@ -127,55 +139,47 @@ namespace ChristianMatch.FastMatch
 
         private void GameScene_Shown(object sender, EventArgs e)
         {
-            this.imgTeam1 = Common.Characters.Instance[this.team1].Image;
-            this.imgTeam2 = Common.Characters.Instance[this.team2].Image;
             this.FlashTimer.Start();
         }
 
         private void startBtn_Click(object sender, EventArgs e)
         {
-            // Prepare the first quiestion
-            Common.Question q = this.dispatcher.GetNext();
+            if (this.game == null || this.game.IsFinished)
+                return;
+
+            // Prepare the question
+            Common.Question q = this.game.NextQuestion();
+            if (q == null)
+            {
+                MessageBox.Show(this, "Sorry.\nSe han agotado las preguntas...", "Oops...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.GameOver();
+                return;
+            }
+
             this.questionForm.SetTheQuestion(q);
             System.Windows.Forms.DialogResult result = this.questionForm.ShowDialog(this);
-            if (result == System.Windows.Forms.DialogResult.OK)
-            {
-                switch (this.questionForm.Winer)
-                {
-                    case "team1":
-                        if (this.config.EqualValue)
-                            this.pointsTeam1 += this.config.QuestionValue;
-                        else
-                            this.pointsTeam1 += q.Level * 5;
-                        break;
 
-                    case "team2":
-                        if (this.config.EqualValue)
-                            this.pointsTeam2 += this.config.QuestionValue;
-                        else
-                            this.pointsTeam2 += q.Level * 5;
-                        break;
+            // Read the winner before restarting the form
+            AnswerOutcome outcome;
+            if (result != System.Windows.Forms.DialogResult.OK)
+                outcome = AnswerOutcome.None;
+            else if (this.questionForm.Winer == "team1")
+                outcome = AnswerOutcome.Team1;
+            else if (this.questionForm.Winer == "team2")
+                outcome = AnswerOutcome.Team2;
+            else
+                outcome = AnswerOutcome.Both;
 
-                    default:
-                        // Split points if both respond
-                        int points = (this.config.EqualValue) ? this.config.QuestionValue : q.Level * 5;
-                        if (points % 2 == 1) points++;
-                        
-                        this.pointsTeam1 += points / 2;
-                        this.pointsTeam2 += points / 2;
-
-                        break;
-                }
-            }
+            this.game.Answer(outcome);
 
             this.questionForm.Restart();
 
             this.mainScene.Invalidate();
 
-            // Check the questionary is not empty
-            if (this.dispatcher.Remainder <= 1)
+            if (this.game.IsFinished)
             {
-                MessageBox.Show(this, "Lo sentimos.\nLas preguntas se han agotado...", "Upsss...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (this.game.QuestionsExhausted)
+                    MessageBox.Show(this, "Sorry.\nSe han agotado las preguntas...", "Oops...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.GameOver();
             }
             else
@@ -184,12 +188,14 @@ namespace ChristianMatch.FastMatch
 
         private void GameOver()
         {
-            if (this.pointsTeam1 == this.pointsTeam2)
+            this.game.Finish();
+
+            if (this.game.IsTie)
                 MessageBox.Show(this, "Juego terminado y EMPATADO.\n\n Buen trabajo equipos!!!", "Fin del Juego", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
                 Common.WinnerForm winner = new Common.WinnerForm();
-                winner.Winner = (this.pointsTeam1 > this.pointsTeam2) ? this.team1 : this.team2;
+                winner.Winner = this.game.Winner;
                 winner.ShowDialog();
             }
 

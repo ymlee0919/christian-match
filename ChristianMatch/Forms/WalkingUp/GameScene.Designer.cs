@@ -43,9 +43,9 @@
             // 
             this.mainScene.BackColor = System.Drawing.Color.White;
             this.mainScene.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainScene.Location = new System.Drawing.Point(0, 0);
+            this.mainScene.Location = new System.Drawing.Point(0, 88);
             this.mainScene.Name = "mainScene";
-            this.mainScene.Size = new System.Drawing.Size(990, 439);
+            this.mainScene.Size = new System.Drawing.Size(990, 351);
             this.mainScene.TabIndex = 3;
             this.mainScene.TabStop = false;
             this.mainScene.Paint += new System.Windows.Forms.PaintEventHandler(this.mainScene_Paint);
@@ -117,8 +117,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(990, 556);
-            this.Controls.Add(this.topLabel);
             this.Controls.Add(this.mainScene);
+            this.Controls.Add(this.topLabel);
             this.Controls.Add(this.bottomPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GameScene";
@@ -127,6 +127,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GameScene";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GameScene_FormClosing);
+            this.Load += new System.EventHandler(this.GameScene_Load);
             this.Shown += new System.EventHandler(this.GameScene_Shown);
             this.Resize += new System.EventHandler(this.GameScene_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.mainScene)).EndInit();

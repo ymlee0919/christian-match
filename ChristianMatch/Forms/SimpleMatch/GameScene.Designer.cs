@@ -99,9 +99,10 @@
             this.topLabel.BackColor = System.Drawing.Color.Transparent;
             this.topLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topLabel.Font = new System.Drawing.Font("Kristen ITC", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.topLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.topLabel.Location = new System.Drawing.Point(0, 0);
             this.topLabel.Name = "topLabel";
-            this.topLabel.Size = new System.Drawing.Size(871, 88);
+            this.topLabel.Size = new System.Drawing.Size(871, 90);
             this.topLabel.TabIndex = 2;
             this.topLabel.Text = "Combate cara a cara";
             this.topLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

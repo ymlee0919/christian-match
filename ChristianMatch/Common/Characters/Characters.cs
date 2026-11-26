@@ -8,12 +8,18 @@ namespace ChristianMatch.Common
     {
         public string Name, FileName;
         public System.Drawing.Image Image;
+        public System.Drawing.Image ImageRTL;
+        public System.Drawing.Image ImageLTR;
+        public char gender;
 
-        public Character(string name, string file)
+        public Character(string name, string file, char gender)
         {
             this.Name = name;
             this.FileName = file;
-            this.Image = System.Drawing.Image.FromFile(System.Environment.CurrentDirectory + "\\resources\\characters\\" + file);
+            this.Image = System.Drawing.Image.FromFile(System.Environment.CurrentDirectory + "\\resources\\characters\\" + file + ".jpg");
+            this.ImageRTL = System.Drawing.Image.FromFile(System.Environment.CurrentDirectory + "\\resources\\players\\" + file + "-rtl.jpg");
+            this.ImageLTR = System.Drawing.Image.FromFile(System.Environment.CurrentDirectory + "\\resources\\players\\" + file + "-ltr.jpg");
+            this.gender = gender;
         }
     }
 
@@ -29,18 +35,18 @@ namespace ChristianMatch.Common
         {
             this.items = new Dictionary<string, Character>();
 
-            this.items["david"] = new Character("David", "david.jpg");
-            this.items["elias"] = new Character("Elías", "elias.jpg");
-            this.items["josue"] = new Character("Josué", "josue.jpg");
-            this.items["sara"] = new Character("Sara", "sara.jpg");
-            this.items["juan"] = new Character("Juan", "juan.jpg");
-            this.items["moises"] = new Character("Moisés", "moises.jpg");
-            this.items["pablo"] = new Character("Pablo", "pablo.jpg");
-            this.items["ester"] = new Character("Ester", "ester.jpg");
-            this.items["pedro"] = new Character("Pedro", "pedro.jpg");
-            this.items["salomon"] = new Character("Salomón", "salomon.jpg");
-            this.items["sanson"] = new Character("Sansón", "sanson.jpg");
-            this.items["maria"] = new Character("María", "maria.jpg");
+            this.items["david"] = new Character("David", "david", 'm');
+            this.items["elias"] = new Character("Elías", "elias", 'm');
+            this.items["josue"] = new Character("Josué", "josue", 'm');
+            this.items["sara"] = new Character("Sara", "sara", 'f');
+            this.items["juan"] = new Character("Juan", "juan", 'm');
+            this.items["moises"] = new Character("Moisés", "moises", 'm');
+            this.items["pablo"] = new Character("Pablo", "pablo", 'm');
+            this.items["ester"] = new Character("Ester", "ester", 'f');
+            this.items["pedro"] = new Character("Pedro", "pedro", 'm');
+            this.items["salomon"] = new Character("Salomón", "salomon", 'm');
+            this.items["sanson"] = new Character("Sansón", "sanson", 'm');
+            this.items["maria"] = new Character("María", "maria", 'f');
 
             this.none = System.Drawing.Image.FromFile(System.Environment.CurrentDirectory + "\\resources\\characters\\none.png");
         }

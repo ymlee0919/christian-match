@@ -40,6 +40,7 @@
             this.wallkingUpBtn = new System.Windows.Forms.Button();
             this.baseballBtn = new System.Windows.Forms.Button();
             this.helpBtn = new System.Windows.Forms.Button();
+            this.welcomeLabel = new System.Windows.Forms.Label();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teamsImage)).BeginInit();
             this.SuspendLayout();
@@ -88,7 +89,7 @@
             // 
             this.topLabel.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.topLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.topLabel.Font = new System.Drawing.Font("Kristen ITC", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.topLabel.Font = new System.Drawing.Font("Comic Sans MS", 26F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.topLabel.ForeColor = System.Drawing.Color.Navy;
             this.topLabel.Location = new System.Drawing.Point(0, 65);
             this.topLabel.Name = "topLabel";
@@ -195,12 +196,25 @@
             this.helpBtn.Visible = false;
             this.helpBtn.Click += new System.EventHandler(this.helpBtn_Click);
             // 
+            // welcomeLabel
+            // 
+            this.welcomeLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.welcomeLabel.ForeColor = System.Drawing.Color.Navy;
+            this.welcomeLabel.Location = new System.Drawing.Point(388, 415);
+            this.welcomeLabel.Name = "welcomeLabel";
+            this.welcomeLabel.Size = new System.Drawing.Size(630, 171);
+            this.welcomeLabel.TabIndex = 7;
+            this.welcomeLabel.Text = "Bienvenidos al torneo de conocimiento bíblico. \r\n\r\n¿Listos para pasar un tiempo d" +
+    "ivertido?\r\nPues adelante, a aprender y pasarla bien...";
+            this.welcomeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(1075, 737);
+            this.Controls.Add(this.welcomeLabel);
             this.Controls.Add(this.baseballBtn);
             this.Controls.Add(this.wallkingUpBtn);
             this.Controls.Add(this.defineTeamsBtn);
@@ -238,6 +252,7 @@
         private System.Windows.Forms.Button wallkingUpBtn;
         private System.Windows.Forms.Button baseballBtn;
         private System.Windows.Forms.Button helpBtn;
+        private System.Windows.Forms.Label welcomeLabel;
     }
 }
 

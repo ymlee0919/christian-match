@@ -128,7 +128,7 @@ namespace ChristianMatch.Common
             {
                 int index = this.team1.Y * 4 + this.team1.X;
                 string name = this.characters[index];
-                e.Graphics.DrawImage(Common.Characters.Instance[name].Image, 0, 0, this.imgTeam1.Width, this.imgTeam1.Height);
+                e.Graphics.DrawImage(Common.Characters.Instance[name].ImageLTR, 0, 0, this.imgTeam1.Width, this.imgTeam1.Height);
             }
         }
 
@@ -144,7 +144,7 @@ namespace ChristianMatch.Common
             {
                 int index = this.team2.Y * 4 + this.team2.X;
                 string name = this.characters[index];
-                e.Graphics.DrawImage(Common.Characters.Instance[name].Image, 0, 0, this.imgTeam1.Width, this.imgTeam1.Height);
+                e.Graphics.DrawImage(Common.Characters.Instance[name].ImageRTL, 0, 0, this.imgTeam1.Width, this.imgTeam1.Height);
             }
         }
     }
