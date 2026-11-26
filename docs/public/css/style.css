@@ -626,7 +626,7 @@ body.nav-open {
   color: rgba(255, 255, 255, .45);
 }
 
-/* Mockup del hero
+/* Captura del hero
    ========================================================================== */
 .hero-visual {
   position: relative;
@@ -634,188 +634,18 @@ body.nav-open {
   padding: 0 .8rem;
 }
 
-.mockup {
-  position: relative;
-  padding: 10px;
-  border: 1px solid rgba(255, 255, 255, .14);
-  border-radius: 26px;
-  background: #0F2044;
-  box-shadow: var(--shadow-lg);
+.hero-shot {
   transform: rotate(-1.2deg);
-}
-
-.mockup-bar {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  padding: .35rem .45rem .65rem;
-}
-
-.mockup-dots {
-  display: flex;
-  gap: 5px;
-}
-
-.mockup-dots i {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, .25);
-}
-
-.mockup-chip {
-  margin-left: auto;
-  padding: .28rem .55rem;
-  border-radius: 7px;
-  background: rgba(255, 255, 255, .08);
-  color: rgba(255, 255, 255, .65);
-  font-size: .68rem;
-  font-weight: 700;
-}
-
-.mockup-timer {
-  padding: .28rem .5rem;
-  border-radius: 7px;
-  background: rgba(251, 191, 36, .12);
-  color: var(--amber);
-  font-size: .7rem;
-  font-weight: 800;
-}
-
-.mockup-screen {
-  padding: clamp(.9rem, 1.8vw, 1.25rem);
-  border-radius: 18px;
-  background: var(--cream);
-  color: var(--ink);
-}
-
-.mockup-scores {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: .55rem;
-  margin-bottom: .9rem;
-}
-
-.score-team {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  min-width: 0;
-  padding: .5rem .55rem;
-  border: 1px solid #E8E2D5;
-  border-radius: 11px;
-  background: #fff;
-}
-
-.score-avatar {
-  display: grid;
-  place-items: center;
-  flex: 0 0 30px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: var(--navy);
-  color: #fff;
-  font-size: .72rem;
-  font-weight: 800;
-}
-
-.score-team--amber .score-avatar {
-  background: #D97706;
-}
-
-.score-name {
-  min-width: 0;
-  line-height: 1.1;
-}
-
-.score-name strong {
-  display: block;
+  border-radius: 16px;
   overflow: hidden;
-  font-size: .72rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  background: var(--paper);
+  box-shadow: 0 20px 40px -16px rgba(11, 27, 58, .18);
 }
 
-.score-name small {
+.hero-shot img {
   display: block;
-  font-size: .62rem;
-  color: var(--muted-2);
-}
-
-.score-points {
-  margin-left: auto;
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 800;
-  line-height: 1;
-}
-
-.mockup-question {
-  margin-bottom: .75rem;
-  color: var(--ink);
-  font-family: var(--font-display);
-  font-size: clamp(.95rem, 1.5vw, 1.1rem);
-  font-weight: 700;
-  line-height: 1.15;
-}
-
-.mockup-options {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: .4rem;
-}
-
-.mockup-option {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: .3rem;
-  padding: .5rem .6rem;
-  border: 1.5px solid #E8E2D5;
-  border-radius: 9px;
-  background: #fff;
-  color: #3E4C63;
-  font-size: .75rem;
-  font-weight: 600;
-}
-
-.mockup-option.is-correct {
-  border-color: var(--amber-strong);
-  background: var(--amber-soft);
-  color: #78350F;
-}
-
-.mockup-option .icon {
-  width: 14px;
-  height: 14px;
-  color: #B45309;
-}
-
-.mockup-progress {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: .8rem;
-  margin-top: .8rem;
-  color: var(--muted-2);
-  font-size: .65rem;
-  font-weight: 700;
-}
-
-.mockup-bar-track {
-  flex: 1;
-  height: 5px;
-  overflow: hidden;
-  border-radius: 99px;
-  background: #E8E2D5;
-}
-
-.mockup-bar-track i {
-  display: block;
-  height: 100%;
-  border-radius: 99px;
-  background: var(--navy);
+  width: 100%;
+  height: auto;
 }
 
 .float-badge {
@@ -2492,7 +2322,7 @@ img.game-icon {
     gap: .5rem 1rem;
   }
 
-  .mockup {
+  .hero-shot {
     transform: none;
   }
 
@@ -2686,39 +2516,6 @@ img.game-icon {
 
   .stat-text span {
     font-size: .68rem;
-  }
-
-  .score-team {
-    gap: .35rem;
-    padding: .45rem .4rem;
-  }
-
-  .score-avatar {
-    flex-basis: 26px;
-    width: 26px;
-    height: 26px;
-    font-size: .64rem;
-  }
-
-  .score-name strong {
-    font-size: .65rem;
-  }
-
-  .score-name small {
-    font-size: .56rem;
-  }
-
-  .score-points {
-    font-size: 1rem;
-  }
-
-  .mockup-option {
-    padding: .45rem .45rem;
-    font-size: .68rem;
-  }
-
-  .mockup-question {
-    font-size: .92rem;
   }
 
   .game-card {
