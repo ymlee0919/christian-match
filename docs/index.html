@@ -1,430 +1,746 @@
 <!DOCTYPE html>
-<html  >
+<html lang="es">
+
 <head>
-  <!-- Site made with Mobirise Website Builder v5.8.4, https://mobirise.com -->
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Mobirise v5.8.4, mobirise.com">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <meta name="description" content="Compendio de juegos cristianos para juegar en equipos. Diseñado para pasar un tiempo de competencia en tu iglesia local.">
-  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-  
-  
-  <title>Chrisitan Match - Compendio de Juegos Cristianos</title>
-  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
-  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="assets/socicon/css/styles.css">
-  <link rel="stylesheet" href="assets/theme/css/style.css">
-  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChristianMatch — Juegos bíblicos para tu grupo de jóvenes</title>
+  <meta name="description" content="Cuatro juegos de preguntas bíblicas para dos equipos. Gratis, sin internet y listo para tu célula, escuela dominical o campamento. Descarga para Windows.">
+  <meta name="keywords" content="juegos bíblicos, trivia bíblica, juegos cristianos, dinámicas para jóvenes, juegos para células, escuela dominical">
+  <meta name="author" content="ChristianMatch">
+  <meta name="theme-color" content="#1E3A8A">
+  <link rel="canonical" href="https://ymlee0919.github.io/christian-match/">
 
-  <meta property="og:title" content="Christian Match">
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="https://ymlee0919.github.io/christian-match/assets/images/presentation.jpg">
-    <meta property="og:url" content="https://ymlee0919.github.io/christian-match/">
-    <meta property="og:description" content="Compendio de juegos cristianos para competencias en la iglesia local">
-  
-  
+  <!-- Open Graph / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ChristianMatch">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="ChristianMatch — Juegos bíblicos para tu grupo">
+  <meta property="og:description" content="Cuatro juegos, dos equipos y una Biblia. Gratis, sin internet y listo para tu próxima reunión.">
+  <meta property="og:url" content="https://ymlee0919.github.io/christian-match/">
+  <meta property="og:image" content="https://ymlee0919.github.io/christian-match/public/img/og-christianmatch.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ChristianMatch: juegos bíblicos para tu grupo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ChristianMatch — Juegos bíblicos para tu grupo">
+  <meta name="twitter:description" content="Cuatro juegos, dos equipos y una Biblia. Gratis, sin internet y listo para jugar.">
+  <meta name="twitter:image" content="https://ymlee0919.github.io/christian-match/public/img/og-christianmatch.png">
+
+  <!-- Iconos -->
+  <link rel="icon" type="image/svg+xml" href="public/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="public/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="public/img/apple-touch-icon.png">
+
+  <!-- Fuentes autohospedadas -->
+  <link rel="preload" href="public/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="public/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="public/css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ChristianMatch",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Windows",
+    "inLanguage": "es",
+    "description": "Cuatro juegos de preguntas bíblicas para dos equipos. Gratis y sin internet.",
+    "url": "https://ymlee0919.github.io/christian-match/",
+    "downloadUrl": "https://ymlee0919.github.io/christian-match/ChristianMatch.zip",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "featureList": ["4 juegos bíblicos", "Dos equipos", "Funciona sin internet", "Editor de preguntas"],
+    "screenshot": "https://ymlee0919.github.io/christian-match/public/img/og-christianmatch.png"
+  }
+  </script>
 </head>
+
 <body>
-  
-  <section data-bs-version="5.1" class="menu menu3 cid-sFAA5oUu2Y" once="menu" id="menu3-1">
-    
-    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg" style="box-shadow: 1px 1px 8px #b7ae9b;">
-        <div class="container">
-            <div class="navbar-brand">
-                
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-primary display-5" href="#!">Christian Match</a></span>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- Sprite de iconos -->
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="logo-mark" viewBox="0 0 64 64">
+      <rect width="64" height="64" rx="16" fill="#1E3A8A"/>
+      <path d="M14.5 22.2c5.1-2.4 10.4-2.2 15.1 1.2v23.9c-4.7-3.4-10-3.6-15.1-1.2V22.2Z" fill="#FFF8EC"/>
+      <path d="M49.5 22.2c-5.1-2.4-10.4-2.2-15.1 1.2v23.9c4.7-3.4 10-3.6 15.1-1.2V22.2Z" fill="#FBBF24"/>
+      <path d="M32 23.4v23.9" stroke="#1E3A8A" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M32 8.5l1.7 4.1 4.1 1.7-4.1 1.7L32 20l-1.7-4-4.1-1.7 4.1-1.7L32 8.5Z" fill="#FBBF24"/>
+    </symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+    </symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14m0 0-6-6m6 6-6 6"/>
+    </symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 19V5m0 0-6 6m6-6 6 6"/>
+    </symbol>
+    <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M8 5.4v13.2L19 12 8 5.4Z"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m4 12.5 5 5L20 6.5"/>
+    </symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+      <circle cx="9" cy="7" r="4"/>
+      <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+    </symbol>
+    <symbol id="i-gamepad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 12h4m-2-2v4m7-1h.01M18 9h.01"/>
+      <rect x="2" y="6" width="20" height="12" rx="6"/>
+    </symbol>
+    <symbol id="i-wifi-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m2 2 20 20M8.5 16.5a5 5 0 0 1 7 0M5 12.9a10 10 0 0 1 4-2.4M19 12.9a10 10 0 0 0-2-1.4M2 8.8a15 15 0 0 1 4-2.4M22 8.8a15 15 0 0 0-11.2-2.6"/>
+      <path d="M12 20h.01"/>
+    </symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="8" width="18" height="13" rx="2"/>
+      <path d="M12 8v13M3 12h18M7.5 8a2.5 2.5 0 1 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 1 1 0 5"/>
+    </symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/>
+    </symbol>
+    <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14Z"/>
+      <path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/>
+    </symbol>
+    <symbol id="i-tent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 21h18M5 21 12 3l7 18M9 21l3-7 3 7"/>
+    </symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 6h10M18 6h2M4 12h2M10 12h10M4 18h10M18 18h2"/>
+      <circle cx="16" cy="6" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="16" cy="18" r="2"/>
+    </symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/>
+    </symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+    </symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
+    </symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/>
+    </symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 0 5.4 0 12c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.6A12 12 0 0 0 12 24c6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.5ZM12 21.8c-1.8 0-3.6-.5-5.1-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8Z"/>
+      <path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-.3-.2-1.2-.5-2.3-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.3 3.2c.1.2 2.2 3.4 5.3 4.8.7.3 1.3.5 1.8.6.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4Z"/>
+    </symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+    </symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M4 7h16M4 12h16M4 17h16"/>
+    </symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m12 3 1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8L12 3Z"/>
+      <path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15Z"/>
+    </symbol>
+    <symbol id="i-comments" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z"/>
+    </symbol>
+    <symbol id="i-lightbulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2Z"/>
+    </symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"/>
+      <path d="M7 6H4v2a4 4 0 0 0 4 4M17 6h3v2a4 4 0 0 1-4 4"/>
+    </symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/>
+      <path d="M14 14h3v3h-3zM20 14h1M14 20h3M20 17v4M17 17h.01"/>
+    </symbol>
+  </svg>
+
+  <!-- Header -->
+  <header class="site-header" id="inicio">
+    <div class="container nav-wrap">
+      <a class="brand" href="#inicio" aria-label="ChristianMatch, ir al inicio">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#logo-mark"/></svg>
+        <span class="brand-name">Christian<span>Match</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#juegos">Juegos</a>
+        <a href="#como-jugar">Cómo jugar</a>
+        <a href="#lideres">Para líderes</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-amber btn-sm nav-download" href="./ChristianMatch.zip" download="ChristianMatch.zip">
+          <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+          Descargar gratis
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Abrir menú">
+          <svg class="icon nav-toggle-open" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="icon nav-toggle-close" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav-mobile" id="mobileNav" hidden>
+      <nav aria-label="Navegación móvil">
+        <a href="#juegos">Juegos</a>
+        <a href="#como-jugar">Cómo jugar</a>
+        <a href="#lideres">Para líderes</a>
+        <a href="#faq">Preguntas frecuentes</a>
+      </nav>
+      <a class="btn btn-amber btn-block" href="./ChristianMatch.zip" download="ChristianMatch.zip">
+        <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+        Descargar gratis
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="hero-eyebrow"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"/></svg> Juegos bíblicos para tu grupo</p>
+            <h1 id="hero-title">¿Quién sabe más? El reto bíblico <span>que enciende a tu grupo.</span></h1>
+            <p class="hero-lead">Cuatro juegos, dos equipos y una Biblia. El plan perfecto para tu célula, tu grupo de jóvenes o una noche con amigos.</p>
+
+            <div class="hero-actions">
+              <a class="btn btn-amber btn-lg" href="./ChristianMatch.zip" download="ChristianMatch.zip">
+                <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+                Descargar gratis
+              </a>
+              <a class="btn btn-ghost btn-lg" href="#juegos">
+                <svg class="icon" aria-hidden="true"><use href="#i-play"/></svg>
+                Ver los juegos
+              </a>
             </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+
+            <ul class="hero-facts">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-monitor"/></svg> Windows</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-gift"/></svg> Gratis</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg> 2 equipos</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-wifi-off"/></svg> Sin internet</li>
+            </ul>
+            <p class="hero-note">Descarga, descomprime y juega. Sin cuenta y sin instalador.</p>
+          </div>
+
+          <div class="hero-visual">
+            <div class="mockup" role="img" aria-label="Vista ilustrativa de una partida con dos equipos, un marcador y una pregunta bíblica">
+              <div class="mockup-bar" aria-hidden="true">
+                <span class="mockup-dots"><i></i><i></i><i></i></span>
+                <span class="mockup-chip">Ronda 3</span>
+                <span class="mockup-timer">00:14</span>
+              </div>
+              <div class="mockup-screen" aria-hidden="true">
+                <div class="mockup-scores">
+                  <div class="score-team score-team--blue">
+                    <span class="score-avatar">D</span>
+                    <span class="score-name"><strong>Equipo David</strong><small>Azul</small></span>
+                    <span class="score-points">120</span>
+                  </div>
+                  <div class="score-team score-team--amber">
+                    <span class="score-avatar">E</span>
+                    <span class="score-name"><strong>Equipo Ester</strong><small>Ámbar</small></span>
+                    <span class="score-points">90</span>
+                  </div>
                 </div>
+                <p class="mockup-question">¿Quién derribó las murallas de Jericó?</p>
+                <div class="mockup-options">
+                  <span class="mockup-option">Gedeón</span>
+                  <span class="mockup-option is-correct">Josué <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>
+                  <span class="mockup-option">Sansón</span>
+                  <span class="mockup-option">Moisés</span>
+                </div>
+                <div class="mockup-progress">
+                  <span>Pregunta 5 de 10</span>
+                  <span class="mockup-bar-track"><i style="width:50%"></i></span>
+                </div>
+              </div>
+            </div>
+            <span class="float-badge float-badge--games"><svg class="icon" aria-hidden="true"><use href="#i-gamepad"/></svg> 4 juegos</span>
+            <span class="float-badge float-badge--offline"><svg class="icon" aria-hidden="true"><use href="#i-wifi-off"/></svg> Sin internet</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Datos rápidos -->
+    <section class="stats" aria-label="Datos rápidos de ChristianMatch">
+      <div class="container stats-grid">
+        <div class="stat">
+          <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-gamepad"/></svg></span>
+          <span class="stat-text"><strong>4</strong><span>juegos distintos</span></span>
+        </div>
+        <div class="stat">
+          <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>
+          <span class="stat-text"><strong>2</strong><span>equipos frente a frente</span></span>
+        </div>
+        <div class="stat">
+          <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-monitor"/></svg></span>
+          <span class="stat-text"><strong>1</strong><span>PC con Windows</span></span>
+        </div>
+        <div class="stat">
+          <span class="stat-icon"><svg class="icon" aria-hidden="true"><use href="#i-wifi-off"/></svg></span>
+          <span class="stat-text"><strong>Sin internet</strong><span>para jugar donde sea</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- La idea -->
+    <section class="section section--paper" id="idea" aria-labelledby="idea-title">
+      <div class="container">
+        <div class="split">
+          <div class="split-copy" data-reveal>
+            <p class="eyebrow">La idea</p>
+            <h2 id="idea-title">No es solo un juego. Es tu próxima reunión.</h2>
+            <p class="lead">Olvídate de las dinámicas de siempre. ChristianMatch reúne cuatro minijuegos donde dos equipos se enfrentan respondiendo preguntas de la Biblia. La pasan increíble, compiten sanamente y, sin darse cuenta, comparten y refuerzan lo que saben.</p>
+
+            <div class="usecases">
+              <div class="usecase">
+                <span class="usecase-icon"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg></span>
+                <div><h3>Célula</h3><p>Para romper el hielo y compartir algo más que la reunión.</p></div>
+              </div>
+              <div class="usecase">
+                <span class="usecase-icon"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg></span>
+                <div><h3>Escuela dominical</h3><p>Refuerza lo aprendido mientras el grupo se divierte.</p></div>
+              </div>
+              <div class="usecase">
+                <span class="usecase-icon"><svg class="icon" aria-hidden="true"><use href="#i-tent"/></svg></span>
+                <div><h3>Campamento</h3><p>Sin internet, funciona en cualquier retiro o vigilia.</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="split-media" data-reveal style="--reveal-delay:.12s">
+            <div class="photo-card">
+              <img src="public/img/grupo-jovenes.jpg" alt="Grupo de jóvenes celebrando con los brazos en alto" width="1200" height="675" loading="lazy" decoding="async">
+            </div>
+            <div class="quote-card">
+              <strong>«Yo sí sabía eso»</strong>
+              <span>La frase que más se repite en cada ronda.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Juegos -->
+    <section class="section section--cream" id="juegos" aria-labelledby="games-title">
+      <div class="container">
+        <header class="section-head section-head--center" data-reveal>
+          <p class="eyebrow">Los juegos</p>
+          <h2 id="games-title">Cuatro juegos. Cuatro formas de poner a prueba lo que saben.</h2>
+          <p>Elige el desafío, forma tu equipo y compite sanamente.</p>
+        </header>
+
+        <div class="games-grid">
+          <article class="game-card" data-reveal style="--accent:#2563EB; --accent-soft:#EAF1FF; --accent-ink:#1D4ED8">
+            <div class="game-top">
+              <img class="game-icon" src="public/img/games/simple-match.png" alt="Cara a Cara">
+              <span class="game-num">01</span>
+            </div>
+            <span class="game-badge">Fácil de aprender</span>
+            <h3>Cara a Cara</h3>
+            <p class="game-tagline">Pregunta a pregunta, punto a punto.</p>
+            <p class="game-desc">Cada equipo responde por turnos y suma puntos. Sencillo, directo y perfecto para empezar la noche.</p>
+            <ul class="game-meta">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg> Por turnos</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg> 2 equipos</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-zap"/></svg> Nivel libre</li>
+            </ul>
+          </article>
+
+          <article class="game-card" data-reveal style="--accent:#FB7185; --accent-soft:#FFE9EE; --accent-ink:#BE123C; --reveal-delay:.08s">
+            <div class="game-top">
+              <img class="game-icon" src="public/img/games/fast-match.png" alt="El Rápido">
+              <span class="game-num">02</span>
+            </div>
+            <span class="game-badge">El más intenso</span>
+            <h3>El Rápido</h3>
+            <p class="game-tagline">Aquí cada segundo cuenta.</p>
+            <p class="game-desc">El primero en responder correctamente se lleva los puntos. Reflejos, emoción y mucha honestidad.</p>
+            <ul class="game-meta">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg> Contrarreloj</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg> 2 equipos</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-zap"/></svg> Máxima energía</li>
+            </ul>
+          </article>
+
+          <article class="game-card" data-reveal style="--accent:#8B5CF6; --accent-soft:#F3EDFF; --accent-ink:#6D28D9; --reveal-delay:.16s">
+            <div class="game-top">
+              <img class="game-icon" src="public/img/games/walking-up.png" alt="Escalando">
+              <span class="game-num">03</span>
+            </div>
+            <span class="game-badge">El estratégico</span>
+            <h3>Escalando</h3>
+            <p class="game-tagline">El camino a la cima se pone difícil.</p>
+            <p class="game-desc">Decide cuánto arriesgar en cada paso. Si aciertas, subes; si fallas, retrocedes. ¿Llegas hasta la corona?</p>
+            <ul class="game-meta">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg> Por niveles</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg> 2 equipos</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-zap"/></svg> Decisiones y riesgo</li>
+            </ul>
+          </article>
+
+          <article class="game-card" data-reveal style="--accent:#14B8A6; --accent-soft:#E6FAF7; --accent-ink:#0F766E; --reveal-delay:.24s">
+            <div class="game-top">
+              <img class="game-icon" src="public/img/games/baseball.png" alt="Béisbol">
+              <span class="game-num">04</span>
+            </div>
+            <span class="game-badge">El clásico renovado</span>
+            <h3>Béisbol</h3>
+            <p class="game-tagline">¡Que comience el juego!</p>
+            <p class="game-desc">El béisbol bíblico, automatizado. Batea preguntas, avanza por las bases y anota carreras.</p>
+            <ul class="game-meta">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg> Por entradas</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg> 2 equipos</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-zap"/></svg> Ambiente de estadio</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo jugar -->
+    <section class="section section--paper" id="como-jugar" aria-labelledby="how-title">
+      <div class="container">
+        <header class="section-head section-head--center" data-reveal>
+          <p class="eyebrow">Cómo jugar</p>
+          <h2 id="how-title">De la descarga al primer punto, en cuatro pasos.</h2>
+          <p>Sin configuraciones complicadas. En pocos minutos ya están jugando.</p>
+        </header>
+
+        <ol class="steps">
+          <li class="step" data-reveal>
+            <span class="step-num">1</span>
+            <span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg></span>
+            <h3>Descarga y descomprime</h3>
+            <p>Baja el archivo ZIP, descomprímelo en una carpeta y ejecuta <strong>ChristianMatch.exe</strong>.</p>
+          </li>
+          <li class="step" data-reveal style="--reveal-delay:.08s">
+            <span class="step-num">2</span>
+            <span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>
+            <h3>Elige los personajes</h3>
+            <p>Cada equipo escoge el personaje bíblico que lo representará durante toda la partida.</p>
+          </li>
+          <li class="step" data-reveal style="--reveal-delay:.16s">
+            <span class="step-num">3</span>
+            <span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg></span>
+            <h3>Ajusta el reto</h3>
+            <p>Selecciona el juego y configura el tiempo, la dificultad o las preguntas que quieras usar.</p>
+          </li>
+          <li class="step" data-reveal style="--reveal-delay:.24s">
+            <span class="step-num">4</span>
+            <span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-trophy"/></svg></span>
+            <h3>¡A jugar!</h3>
+            <p>Proyecta la pantalla, arma los equipos y que empiece la competencia.</p>
+          </li>
+        </ol>
+
+        <p class="steps-note">
+          <svg class="icon" aria-hidden="true"><use href="#i-monitor"/></svg>
+          Solo necesitas un PC con Windows y una pantalla para compartir.
+        </p>
+      </div>
+    </section>
+
+    <!-- Aprender -->
+    <section class="section section--ink" id="aprender" aria-labelledby="learn-title">
+      <div class="container">
+        <div class="split">
+          <div class="split-copy" data-reveal>
+            <p class="eyebrow eyebrow--amber">El propósito</p>
+            <h2 id="learn-title">Aprender juntos es la mejor parte.</h2>
+            <p class="lead">No se trata solo de ganar, sino de crecer como grupo. Cada pregunta incluye un comentario con la respuesta y su contexto, así el juego se convierte en una conversación donde todos descubren algo nuevo.</p>
+
+            <ul class="check-list">
+              <li>
+                <span class="check-icon"><svg class="icon" aria-hidden="true"><use href="#i-comments"/></svg></span>
+                <div><strong>Charla y debate</strong><span>Cada respuesta es un tema de conversación para tu grupo.</span></div>
+              </li>
+              <li>
+                <span class="check-icon"><svg class="icon" aria-hidden="true"><use href="#i-lightbulb"/></svg></span>
+                <div><strong>Descubre algo nuevo</strong><span>Los comentarios revelan detalles de la Palabra que quizá no conocían.</span></div>
+              </li>
+              <li>
+                <span class="check-icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>
+                <div><strong>Crece como equipo</strong><span>El conocimiento bíblico se comparte y se refuerza juntos.</span></div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="split-media" data-reveal style="--reveal-delay:.12s">
+            <div class="learn-mockup">
+              <img src="public/img/question.png" alt="Captura de pantalla de ChristianMatch: pregunta con respuesta y comentario bíblico">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Líderes -->
+    <section class="section section--cream" id="lideres" aria-labelledby="leaders-title">
+      <div class="container">
+        <header class="section-head section-head--split" data-reveal>
+          <div>
+            <p class="eyebrow">Para líderes y anfitriones</p>
+            <h2 id="leaders-title">Tú pones las reglas. Nosotros los juegos.</h2>
+          </div>
+          <p class="section-head-note">Las herramientas que necesitas para organizar una reunión memorable, sin complicarte.</p>
+        </header>
+
+        <div class="leaders-grid">
+          <article class="leader-card" data-reveal>
+            <span class="leader-icon"><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg></span>
+            <h3>Configura a tu medida</h3>
+            <p>Ajusta el tiempo de respuesta, el valor de las preguntas o la dificultad según el tipo de reto que quieras vivir.</p>
+          </article>
+          <article class="leader-card" data-reveal style="--reveal-delay:.08s">
+            <span class="leader-icon"><svg class="icon" aria-hidden="true"><use href="#i-edit"/></svg></span>
+            <h3>Edita el cuestionario</h3>
+            <p>Crea y personaliza preguntas para alinearlas con el tema de tu estudio, tu célula o la enseñanza de la semana.</p>
+          </article>
+          <article class="leader-card" data-reveal style="--reveal-delay:.16s">
+            <span class="leader-icon"><svg class="icon" aria-hidden="true"><use href="#i-monitor"/></svg></span>
+            <h3>Fácil de montar</h3>
+            <p>Descarga, descomprime y ejecuta en cualquier PC con Windows. Sin instalaciones complejas ni conexión a internet.</p>
+          </article>
+        </div>
+
+        <div class="leader-callout" data-reveal>
+          <div>
+            <strong>¿Tienes una idea para un nuevo juego?</strong>
+            <span>Tu colaboración ayuda a que ChristianMatch siga creciendo.</span>
+          </div>
+          <a class="btn btn-amber" href="mailto:ymlee0919@gmail.com?subject=Idea%20para%20ChristianMatch">
+            <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+            Escríbenos
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="section section--paper" id="galeria" aria-labelledby="gallery-title">
+      <div class="container">
+        <header class="section-head section-head--center" data-reveal>
+          <p class="eyebrow">Así se ve una partida</p>
+          <h2 id="gallery-title">Cuatro juegos, una sola pantalla.</h2>
+          <p>Vistas reales de la app para que sepas cómo se juega antes de descargar.</p>
+        </header>
+
+        <div class="gallery-grid" role="region" aria-label="Galería de vistas ilustrativas" tabindex="0">
+          <figure class="shot" data-reveal>
+            <div class="shot-frame">
+              <div class="shot-bar"><span class="shot-dots"><i></i><i></i><i></i></span><span class="shot-label">Seleccionar equipos</span></div>
+              <div class="shot-screen">
+                <img src="public/img/select-players.png" alt="Captura de pantalla de ChristianMatch: selección de equipos">
+              </div>
+            </div>
+          </figure>
+
+          <figure class="shot" data-reveal style="--reveal-delay:.08s">
+            <div class="shot-frame">
+              <div class="shot-bar"><span class="shot-dots"><i></i><i></i><i></i></span><span class="shot-label">Seleccionar juego</span></div>
+              <div class="shot-screen">
+                <img src="public/img/main-screen.png" alt="Captura de pantalla de ChristianMatch: selección del juego">
+              </div>
+            </div>
+          </figure>
+
+          <figure class="shot" data-reveal style="--reveal-delay:.16s">
+            <div class="shot-frame">
+              <div class="shot-bar"><span class="shot-dots"><i></i><i></i><i></i></span><span class="shot-label">Jugar</span></div>
+              <div class="shot-screen">
+                <img src="public/img/baseball.png" alt="Captura de pantalla de ChristianMatch: Béisbol en juego">
+              </div>
+            </div>
+          </figure>
+        </div>
+        <p class="gallery-hint">Desliza para ver las tres vistas <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--cream" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="faq-grid">
+          <div class="faq-intro" data-reveal>
+            <p class="eyebrow">Preguntas frecuentes</p>
+            <h2 id="faq-title">Todo lo que necesitas saber antes de jugar.</h2>
+            <p>Si tu duda no está aquí, escríbenos. Con gusto te ayudamos a preparar la próxima reunión.</p>
+            <a class="contact-card" href="mailto:ymlee0919@gmail.com?subject=Duda%20sobre%20ChristianMatch">
+              <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span>
+              <span><strong>Escríbenos</strong><span>ymlee0919@gmail.com</span></span>
+            </a>
+          </div>
+
+          <div class="faq-list" data-reveal style="--reveal-delay:.1s">
+            <details class="faq-item">
+              <summary>¿ChristianMatch es gratis?<span class="faq-plus" aria-hidden="true"></span></summary>
+              <div class="faq-answer"><p>Sí. Es totalmente gratis: descárgalo y úsalo sin costo, sin cuentas y sin suscripciones.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>¿Necesito internet para jugar?<span class="faq-plus" aria-hidden="true"></span></summary>
+              <div class="faq-answer"><p>No. Una vez descargado, funciona sin conexión a internet. Es ideal para campamentos, retiros y lugares donde la señal no llega.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>¿Cuántas personas pueden jugar?<span class="faq-plus" aria-hidden="true"></span></summary>
+              <div class="faq-answer"><p>Se juega con dos equipos. Pueden participar desde un par de jugadores hasta un grupo grande; todos comparten la misma pantalla y se turnan para responder.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>¿Funciona en Mac, celular o tablet?<span class="faq-plus" aria-hidden="true"></span></summary>
+              <div class="faq-answer"><p>La versión actual es para Windows. Para jugar necesitas un PC con Windows conectado a una pantalla o proyector.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>¿Puedo editar las preguntas?<span class="faq-plus" aria-hidden="true"></span></summary>
+              <div class="faq-answer"><p>Sí. La app incluye la gestión del cuestionario para crear y personalizar preguntas, y así alinearlas con el tema de tu estudio o célula.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>¿Cómo lo proyecto en la reunión?<span class="faq-plus" aria-hidden="true"></span></summary>
+              <div class="faq-answer"><p>Conecta el PC al televisor o proyector por HDMI y comparte la pantalla. Los dos equipos responden desde la misma pantalla, así que todos pueden seguir el juego.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>¿Qué necesito para instalarlo?<span class="faq-plus" aria-hidden="true"></span></summary>
+              <div class="faq-answer"><p>Windows y .NET Framework 3.5 o superior. Descarga el ZIP (9,1 MB), descomprímelo y ejecuta <strong>ChristianMatch.exe</strong>. No hay instalador.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>¿Puedo usarlo en un campamento o retiro?<span class="faq-plus" aria-hidden="true"></span></summary>
+              <div class="faq-answer"><p>Sí. Al funcionar sin internet y necesitar solo un PC, es una opción práctica para campamentos, vigilias y retiros.</p></div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Descarga -->
+    <section class="section section--download" id="descarga" aria-labelledby="download-title">
+      <div class="container">
+        <div class="download-card" data-reveal>
+          <div class="download-copy">
+            <p class="eyebrow eyebrow--amber">¿Listos para el próximo reto?</p>
+            <h2 id="download-title">Reúne a tu grupo y que empiece el juego.</h2>
+            <p>Elige a tu personaje bíblico favorito, arma los equipos y descubre cuánto saben de la Biblia. La descarga es gratis y toma menos de un minuto.</p>
+
+            <div class="download-actions">
+              <a class="btn btn-amber btn-lg" href="./ChristianMatch.zip" download="ChristianMatch.zip">
+                <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+                Descargar ChristianMatch
+              </a>
+            </div>
+            <p class="download-meta">Windows · 9,1 MB · Gratis · Sin internet · 2 equipos</p>
+
+            <details class="req-details">
+              <summary>Ver requisitos técnicos</summary>
+              <ul>
+                <li>Windows y .NET Framework 3.5 o superior.</li>
+                <li>Descarga <strong>ChristianMatch.zip</strong> (9,1 MB) y descomprímelo en una carpeta.</li>
+                <li>Ejecuta <strong>ChristianMatch.exe</strong>. No requiere instalador.</li>
+                <li>Funciona sin conexión a internet.</li>
+              </ul>
+            </details>
+          </div>
+
+          <div class="download-qr">
+            <img src="public/img/qr-descarga.svg" width="220" height="220" alt="Código QR para abrir la página de descarga de ChristianMatch">
+            <strong>Escanea y comparte</strong>
+            <span>Proyéctalo en la reunión para que todos lo tengan a mano.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand brand--footer" href="#inicio">
+            <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#logo-mark"/></svg>
+            <span class="brand-name">Christian<span>Match</span></span>
+          </a>
+          <p>Que Dios te bendiga y que pasen un rato increíble. Este proyecto nace con el deseo de ser de bendición para tu grupo.</p>
+          <p class="footer-verse">«Todo lo puedo en Cristo que me fortalece.»<br>Filipenses 4:13</p>
+        </div>
+
+        <div>
+          <h3>Explorar</h3>
+          <ul class="footer-links">
+            <li><a href="#juegos">Los juegos</a></li>
+            <li><a href="#como-jugar">Cómo jugar</a></li>
+            <li><a href="#lideres">Para líderes</a></li>
+            <li><a href="#galeria">Galería</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Recursos</h3>
+          <ul class="footer-links">
+            <li><a href="#faq">Preguntas frecuentes</a></li>
+            <li><a href="#descarga">Requisitos y descarga</a></li>
+            <li><a href="mailto:ymlee0919@gmail.com?subject=Idea%20para%20ChristianMatch">Enviar una idea</a></li>
+            <li><a href="mailto:ymlee0919@gmail.com?subject=Duda%20sobre%20ChristianMatch">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Comparte</h3>
+          <p class="footer-share-text">¿Conoces a alguien que lo disfrutaría? Pásale el enlace.</p>
+          <div class="share-buttons">
+            <a class="share-btn share-btn--wa" href="https://wa.me/?text=ChristianMatch%3A%20cuatro%20juegos%20b%C3%ADblicos%20para%20jugar%20en%20equipo.%20Gratis%2C%20sin%20internet%20y%20listo%20para%20tu%20grupo.%20https%3A%2F%2Fymlee0919.github.io%2Fchristian-match%2F" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+              Compartir por WhatsApp
+            </a>
+            <button class="share-btn" type="button" data-copy="https://ymlee0919.github.io/christian-match/">
+              <svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg>
+              <span class="copy-label">Copiar enlace</span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-primary display-7" href="page1.html#content4-6">Juegos&nbsp;</a></li>
-                    <li class="nav-item"><a class="nav-link link text-primary display-7" href="page1.html#content9-0">Empezando</a></li>
-                    <li class="nav-item"><a class="nav-link link text-primary display-7" href="page1.html#content16-1">Ajustes</a>
-                    </li><li class="nav-item"><a class="nav-link link text-primary display-7" href="page1.html#features16-9">Cuestionarios</a></li></ul>
-                
-                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="./ChristianMatch.zip"><span class="mobi-mbri mobi-mbri-download-2 mbr-iconfont mbr-iconfont-btn"></span>Descargar</a></div>
-            </div>
+          </div>
         </div>
-    </nav>
-</section>
+      </div>
 
-<section data-bs-version="5.1" class="header1 cid-sFCAOqBTxa" id="header1-i">
-    <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(237, 245, 225);"></div>
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-8">
-                <h1 class="mbr-section-title mbr-fonts-style mb-3 display-1"><strong>Christian Match</strong></h1>
-                
-                <p class="mbr-text mbr-fonts-style display-7">Compendio de juegos cristianos para juegar en equipos. Diseñado para pasar un tiempo de competencia en tu iglesia local.<br></p>
-                <div class="mbr-section-btn mt-3"><a class="btn btn-secondary display-4" href="./ChristianMatch.zip"><span class="mobi-mbri mobi-mbri-download-2 mbr-iconfont mbr-iconfont-btn"></span>Descargar&nbsp;</a></div>
-            </div>
-        </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year">2026</span> ChristianMatch. Todos los derechos reservados.</p>
+        <p>Hecho con ♥ para los grupos juveniles.</p>
+      </div>
     </div>
-</section>
+  </footer>
 
-<section data-bs-version="5.1" class="content4 cid-sFADQxFnEn" id="content4-5">
-    
-    
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="title col-md-12 col-lg-10">
-                <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-2"><strong>Más que un simple juego</strong></h3>
-                
-                
-            </div>
-        </div>
+  <!-- CTA móvil -->
+  <aside class="mobile-cta" id="mobileCta" aria-label="Descarga rápida">
+    <div>
+      <strong>ChristianMatch</strong>
+      <span>Gratis · Windows · Sin internet</span>
     </div>
-</section>
+    <a class="btn btn-amber btn-sm" href="./ChristianMatch.zip" download="ChristianMatch.zip">
+      <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+      Descargar
+    </a>
+  </aside>
 
-<section data-bs-version="5.1" class="features5 cid-sFACYYm0AQ" id="features6-3">
+  <button class="back-to-top" type="button" aria-label="Volver arriba">
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg>
+  </button>
 
-    
+  <noscript>
+    <style>
+      .nav-mobile[hidden] { display: block !important; }
+      .nav-toggle { display: none !important; }
+    </style>
+  </noscript>
 
-    
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="card col-12 col-lg-6">
-                <div class="card-wrapper mbr-flex">
-                    <div class="card-box align-left">
-                        
-                        <h5 class="card-title mbr-fonts-style align-left mb-3 display-5"><strong>Juego en equipo</strong></h5>
-                        <p class="mbr-text mbr-fonts-style mb-3 display-4">
-                            Reune tus amigos, forma dos equipos, selecciona el personaje bíblico que representa tu equipo y pasa un rato divertido.</p>
-                        
-                    </div>
-                    <div class="img-wrapper img1 align-center">
-                        <span class="mbr-iconfont mobi-mbri-users mobi-mbri"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card col-12 col-lg-6">
-                <div class="card-wrapper mbr-flex">
-                    <div class="card-box align-left">
-                        
-                        <h5 class="card-title mbr-fonts-style align-left mb-3 display-5"><strong>Cuestionarios</strong></h5>
-                        <p class="mbr-text mbr-fonts-style mb-3 display-4">Ya sea que quieras profundizar en un tema o un libro bíblico, puedes crear o personalizar un cuestionario con las preguntas que quieras.</p>
-                        
-                    </div>
-                    <div class="img-wrapper img2 align-center">
-                        <span class="mbr-iconfont mobi-mbri-contact-form mobi-mbri"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section data-bs-version="5.1" class="content4 cid-sFADQQfNeA" id="content4-6">
-    
-    
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="title col-md-12 col-lg-10">
-                <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-2"><strong>Juegos</strong></h3>
-                
-                
-            </div>
-        </div>
-    </div>
-</section>
-
-<section data-bs-version="5.1" class="features8 cid-sFADMOwrhN" xmlns="http://www.w3.org/1999/html" id="features9-4">
-    
-    
-
-    
-
-    <div class="container">
-        <div class="card">
-            <div class="card-wrapper">
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-3">
-                        <div class="image-wrapper">
-                            <img src="assets/images/simple-match.png">
-                        </div>
-                    </div>
-                    <div class="col-12 col-md">
-                        <div class="card-box">
-                            <div class="row">
-                                <div class="col-md">
-                                    <h6 class="card-title mbr-fonts-style display-5"><strong>Cara a cara&nbsp;</strong></h6>
-                                    <p class="mbr-text mbr-fonts-style display-7">Juego simple de responder rondas de preguntas, una cada uno, hasta que se agoten las preguntas o hasta que decidan.
-<br>El objetivo es ver cuál de los dos alcanza mayor puntuación.<br></p>
-                                </div>
-                                
-                                <div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-wrapper">
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-3">
-                        <div class="image-wrapper">
-                            <img src="assets/images/fast-match.png">
-                        </div>
-                    </div>
-                    <div class="col-12 col-md">
-                        <div class="card-box">
-                            <div class="row">
-                                <div class="col-md">
-                                    <h6 class="card-title mbr-fonts-style display-5"><strong>El rápido</strong></h6>
-                                    <p class="mbr-text mbr-fonts-style display-7">La idea es ver cuál de los dos responde una pregunta más rápido. El primero que responda correctamente es el que gana los puntos. Esta competencia depende de la sinceridad de los jugadores pues se tiene que indicar manualmente cuál fue el jugador ganador. </p>
-                                </div>
-                                
-                                <div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-wrapper">
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-3">
-                        <div class="image-wrapper">
-                            <img src="assets/images/walking-up.png">
-                        </div>
-                    </div>
-                    <div class="col-12 col-md">
-                        <div class="card-box">
-                            <div class="row">
-                                <div class="col-md">
-                                    <h6 class="card-title mbr-fonts-style display-5"><strong>Escalando</strong></h6>
-                                    <p class="mbr-text mbr-fonts-style display-7">El objetivo es ir escalando hasta ver quién llega primero a la cima y alcanza la corona. Los jugadores deben seleccionar la cantidad de pasos que deseen dar. Según ascienden los jugadores aumenta el nivel de complejidad de las preguntas. Si un jugador no responde una pregunta correctamente retrocede la misma cantidad de pasos que decidió avanzar.<br></p>
-                                </div>
-                                
-                                <div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-		<div class="card">
-            <div class="card-wrapper">
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-3">
-                        <div class="image-wrapper">
-                            <img src="assets/images/baseball.png">
-                        </div>
-                    </div>
-                    <div class="col-12 col-md">
-                        <div class="card-box">
-                            <div class="row">
-                                <div class="col-md">
-                                    <h6 class="card-title mbr-fonts-style display-5"><strong>Baseball</strong></h6>
-                                    <p class="mbr-text mbr-fonts-style display-7">Clásico juego de baseball bíblico entre dos equipos.<br></p>
-                                </div>
-                                
-                                <div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section data-bs-version="5.1" class="content9 cid-tZeeRnXB2X" id="content9-0">
-    
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="counter-container col-md-12 col-lg-9">
-                <h4 class="mbr-section-title mbr-fonts-style mb-4 display-2">¿Cómo empezar?</h4>
-                <div class="mbr-text mbr-fonts-style display-7">
-                    <ol>
-						<li><strong>Descargar: </strong>Descarga <a href="./ChrisitanMatch.zip">ChrisitanMatch.zip</a>, descompáctalo en la carpeta donde quieres tenerlo.</li>
-                        <li><strong>Abre la aplicación: </strong>Sólo tienes que ejecutar el archivo <em>ChrisitanMatch.exe</em>.</li>
-                        <li><strong>Definir equipos:&nbsp;</strong>Una vez abierta la aplicación el siguiente paso es "Definir Equipos". Al oprimir el botón se muestra una ventana que permite seleccionar los personaje bíblicos con los que se llamarán los equipos. <em>El primer jugador se selecciona con clic izquierdo y el segundo jugador con clic derecho.</em></li>
-                        <li><strong>Seleccionar juego:&nbsp;</strong>Selecciona el tipo de enfrentamiento que desean jugar.</li><li><strong>Ajusta los detalles del juego:</strong> Antes de comenzar cada juego es necesario establecer ciertas reglas del juego.</li><li><strong>A jugar...!!!</strong></li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section data-bs-version="5.1" class="content7 cid-tZeiz0h4vI" id="content7-2">
-    
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-8">
-                <blockquote>
-                <h5 class="mbr-section-title mbr-fonts-style mb-2 display-7"><strong>Requerimientos</strong></h5>
-                <p class="mbr-text mbr-fonts-style display-4"><em>La aplicación sólo corre sobre Windows con Framework de .NET 3.5 o mayor.</em></p></blockquote>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section data-bs-version="5.1" class="content16 cid-tZeigdn52O" id="content16-1">
-
-    
-
-    
-    
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-10">
-                <div class="mbr-section-head align-center mb-4">
-                    <h3 class="mbr-section-title mb-0 mbr-fonts-style display-2"><strong>Configurando las partidas</strong></h3>
-                    <h4 class="mbr-section-subtitle mb-0 mt-2 mbr-fonts-style display-7">Antes de comenzar cada juego es necesario establecer ciertas reglas del juego. <br>Esto es lo que significa cada posible configuración:</h4>
-                </div>
-                <div id="bootstrap-accordion_27" class="panel-group accordionStyles accordion" role="tablist" aria-multiselectable="true">
-                    <div class="card mb-3">
-                        <div class="card-header" role="tab" id="headingOne">
-                            <a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse1_27" aria-expanded="false" aria-controls="collapse1">
-                                <h6 class="panel-title-edit mbr-fonts-style mb-0 display-7"><strong>Mostrar cuestionario con posibles respuestas</strong></h6>
-                                <span class="sign mbr-iconfont mbri-arrow-down"></span>
-                            </a>
-                        </div>
-                        <div id="collapse1_27" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_27">
-                            <div class="panel-body">
-                                <p class="mbr-fonts-style panel-text display-4">Si se selecciona esta opción se muestran 5 posibles respuestas cuando se lanza una pregunta. <br><br>En caso de no seleccionarla el jugador debe responder y después se revela la respuesta correcta. La respuesta se muestra cuando hace clic en <em>“Respuesta”</em>, que aparece en la misma ventada donde se hace la pregunta.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mb-3">
-                        <div class="card-header" role="tab" id="headingOne">
-                            <a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse2_27" aria-expanded="false" aria-controls="collapse2">
-                                <h6 class="panel-title-edit mbr-fonts-style mb-0 display-7"><strong>Limitar el tiempo de respuesta</strong></h6>
-                                <span class="sign mbr-iconfont mbri-arrow-down"></span>
-                            </a>
-                        </div>
-                        <div id="collapse2_27" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_27">
-                            <div class="panel-body">
-                                <p class="mbr-fonts-style panel-text display-4">
-                                    Esto es para limitar el tiempo que puede demorar un jugador en responder. Si no se selecciona el tiempo para responder una pregunta es ilimatado. Si lo selecciona se debe ajustar el tiempo permitido para dar la respuesta. Una vez pasado este tiempo sin seleccionar alguna respuesta se considera que la respuesta es incorrecta.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mb-3">
-                        <div class="card-header" role="tab" id="headingOne">
-                            <a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse3_27" aria-expanded="false" aria-controls="collapse3">
-                                <h6 class="panel-title-edit mbr-fonts-style mb-0 display-7"><strong>Todas las preguntas tienen el mismo valor</strong></h6>
-                                <span class="sign mbr-iconfont mbri-arrow-down"></span>
-                            </a>
-                        </div>
-                        <div id="collapse3_27" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_27">
-                            <div class="panel-body">
-                                <p class="mbr-fonts-style panel-text display-4">
-                                    Establece el valor de las preguntas, todas por igual, sin tener en cuenta el grado de complejidad. La dificultad de una pregunta se puede ver en cuestionario y se indica con asteriscos debajo de la pregunta, en color amarillo. El grado de dificultad puede estar entre <strong>1</strong> (<em>más fácil</em>) y <strong>5</strong> (<em>más difícil</em>).</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mb-3">
-                        <div class="card-header" role="tab" id="headingOne">
-                            <a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse4_27" aria-expanded="false" aria-controls="collapse4">
-                                <h6 class="panel-title-edit mbr-fonts-style mb-0 display-7"><strong>Cuestionario</strong></h6>
-                                <span class="sign mbr-iconfont mbri-arrow-down"></span>
-                            </a>
-                        </div>
-                        <div id="collapse4_27" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_27">
-                            <div class="panel-body">
-                                <p class="mbr-fonts-style panel-text display-4">
-                                    Cuestionario que contiene las preguntas del juego.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mb-3">
-                        <div class="card-header" role="tab" id="headingOne">
-                            <a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse5_27" aria-expanded="false" aria-controls="collapse5">
-                                <h6 class="panel-title-edit mbr-fonts-style mb-0 display-7"><strong>Otras</strong></h6>
-                                <span class="sign mbr-iconfont mbri-arrow-down"></span>
-                            </a>
-                        </div>
-                        <div id="collapse5_27" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_27">
-                            <div class="panel-body">
-                                <p class="mbr-fonts-style panel-text display-4">
-                                    Las otras posibles reglas de juegos son fáciles de intuir.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section data-bs-version="5.1" class="features15 cid-sFANq99njx" id="features16-9">
-
-    
-
-    
-    <div class="container">
-        <div class="content-wrapper">
-            <div class="row align-items-center">
-                <div class="col-12 col-lg">
-                    <div class="text-wrapper">
-                        <h6 class="card-title mbr-fonts-style display-2"><strong>Cuestionarios</strong></h6>
-                        <p class="mbr-text mbr-fonts-style mb-4 display-4">Es posible crear o personalizar cuestionarios. Los cuestionarios son un compendio de preguntas. Cada pregunta tiene el nivel de dificultad (entre fácil y difícil), el texto de la pregunta, 5 posibles respuestas y un comentario relativo a la pregunta correcta. Este es el comentario que se muestra cuando un competidor selecciona una respuesta incorrecta.<br><br>La aplicación permite gestionar los cuestionarios. Una vez creado un nuevo cuestionario o abierto uno ya existene, es posible comenzar a editar las preguntas.<br></p>
-                        
-                    </div>
-                </div>
-                <div class="col-12 col-lg-5">
-                    <div class="image-wrapper">
-                        <img src="assets/images/contact.jpg" alt="Mobirise Website Builder">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section data-bs-version="5.1" class="content6 cid-tZeuHNvlmC" id="content6-6">
-    
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12 col-lg-12">
-                <hr class="line">
-                <p class="mbr-text align-center mbr-fonts-style my-4 display-7">Es el deseo de mi corazón que esta aplicación pueda ser de bendición para su vida y su iglesia.<br><br>Me gustaría seguir desarrollando nuevos juegos cristianos. Por favor, cualquier ayuda que pueda hacerme llegar se lo agradeceré. Ya sea que usted quiera enviarme tus críticas o sugerencias de esta aplicación en específico, darme ideas de nuevos juegos que se puedan desarrollar o incorporar, trabajar en conjunto o si siente en su corazón apoyar económicamente, estaré agradecido.</p>
-                <hr class="line">
-            </div>
-        </div>
-    </div>
-</section>
-
-<section data-bs-version="5.1" class="footer3 cid-sFAOjz8nX7" once="footers" id="footer3-d">
-
-    
-
-    
-
-    <div class="container">
-        <div class="media-container-row align-center mbr-white">
-            
-            
-            <div class="row row-copirayt">
-                <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
-                    Yuriesky Méndez Lee<br><em><small><a href="mailto:ymlee0919@gmail.com" class="text-white">ymlee0919@gmail.com</a></small></em></p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/theme/js/script.js"></script>  
-  
-  
+  <script src="public/js/main.js" defer></script>
 </body>
+
 </html>

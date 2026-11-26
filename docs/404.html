@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página no encontrada — ChristianMatch</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#1E3A8A">
+  <style>
+    @font-face {
+      font-family: "Bricolage Grotesque";
+      src: url("/christian-match/public/fonts/bricolage-grotesque-latin.woff2") format("woff2");
+      font-weight: 200 800;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Inter";
+      src: url("/christian-match/public/fonts/inter-latin.woff2") format("woff2");
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --ink: #0B1B3A;
+      --navy: #1E3A8A;
+      --blue: #2563EB;
+      --amber: #FBBF24;
+      --cream: #FFF8EC;
+      --muted: #5B6B84;
+      --line: #E7DCCB;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; min-height: 100%; }
+
+    body {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(251, 191, 36, .20), transparent 26rem),
+        radial-gradient(circle at 88% 82%, rgba(37, 99, 235, .14), transparent 28rem),
+        var(--cream);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      width: min(100%, 780px);
+      background: rgba(255, 255, 255, .92);
+      border: 1px solid rgba(231, 220, 203, .9);
+      border-radius: 32px;
+      box-shadow: 0 28px 80px rgba(11, 27, 58, .14);
+      padding: clamp(28px, 5vw, 56px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 8px;
+      background: linear-gradient(90deg, var(--navy), var(--blue) 55%, var(--amber));
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: clamp(28px, 5vw, 44px);
+      color: var(--ink);
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      text-decoration: none;
+    }
+
+    .brand svg {
+      width: 38px;
+      height: 38px;
+      flex: none;
+      border-radius: 11px;
+      box-shadow: 0 8px 20px rgba(30, 58, 138, .20);
+    }
+
+    .brand span { color: var(--navy); }
+    .brand em { color: #B45309; font-style: normal; }
+
+    .code {
+      margin: 0;
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-size: clamp(5.2rem, 18vw, 9.5rem);
+      font-weight: 800;
+      line-height: .82;
+      letter-spacing: -.07em;
+      color: var(--navy);
+      text-shadow: 5px 5px 0 var(--amber);
+    }
+
+    h1 {
+      margin: 22px 0 12px;
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-size: clamp(1.7rem, 5vw, 2.6rem);
+      line-height: 1.05;
+      letter-spacing: -.04em;
+    }
+
+    .lead {
+      max-width: 34rem;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: clamp(.98rem, 2.4vw, 1.08rem);
+      line-height: 1.65;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 50px;
+      padding: 0 20px;
+      border: 0;
+      border-radius: 14px;
+      font: inherit;
+      font-size: .94rem;
+      font-weight: 750;
+      line-height: 1;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+    }
+
+    .btn svg { width: 19px; height: 19px; flex: none; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+
+    .btn-primary {
+      background: var(--navy);
+      color: #fff;
+      box-shadow: 0 12px 26px rgba(30, 58, 138, .24);
+    }
+    .btn-primary:hover { background: #162F70; }
+
+    .btn-amber {
+      background: var(--amber);
+      color: var(--ink);
+      box-shadow: 0 12px 26px rgba(180, 83, 9, .18);
+    }
+    .btn-amber:hover { background: #FCD34D; }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 20px;
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    .links a {
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    .links a:hover { color: var(--blue); }
+    .links a:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; border-radius: 4px; }
+
+    .note {
+      margin: 22px 0 0;
+      color: #7A8496;
+      font-size: .76rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 14px; }
+      .page { border-radius: 24px; padding: 26px 20px 30px; }
+      .actions { flex-direction: column; }
+      .btn { width: 100%; }
+      .links { gap: 8px 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <a class="brand" href="/christian-match/" aria-label="ChristianMatch, ir al inicio">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="16" fill="#1E3A8A"/>
+        <path d="M14.5 22.2c5.1-2.4 10.4-2.2 15.1 1.2v23.9c-4.7-3.4-10-3.6-15.1-1.2V22.2Z" fill="#FFF8EC"/>
+        <path d="M49.5 22.2c-5.1-2.4-10.4-2.2-15.1 1.2v23.9c4.7-3.4 10-3.6 15.1-1.2V22.2Z" fill="#FBBF24"/>
+        <path d="M32 23.4v23.9" stroke="#1E3A8A" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M32 8.5l1.7 4.1 4.1 1.7-4.1 1.7L32 20l-1.7-4-4.1-1.7 4.1-1.7L32 8.5Z" fill="#FBBF24"/>
+      </svg>
+      <span>Christian<em>Match</em></span>
+    </a>
+
+    <p class="code" aria-hidden="true">404</p>
+    <h1>Esta página se fue a jugar.</h1>
+    <p class="lead">No encontramos la página que buscas. Vuelve al inicio o descarga ChristianMatch para empezar la próxima reunión.</p>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="/christian-match/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M19 12H5m0 0 6-6m-6 6 6 6"/>
+        </svg>
+        Volver al inicio
+      </a>
+      <a class="btn btn-amber" href="/christian-match/ChristianMatch.zip" download="ChristianMatch.zip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+        </svg>
+        Descargar ChristianMatch
+      </a>
+    </div>
+
+    <nav class="links" aria-label="Enlaces útiles">
+      <a href="/christian-match/#juegos">Ver los juegos</a>
+      <a href="/christian-match/#como-jugar">Cómo jugar</a>
+      <a href="/christian-match/#faq">Preguntas frecuentes</a>
+    </nav>
+
+    <p class="note">ChristianMatch es gratis, funciona sin internet y está pensado para tu grupo de jóvenes.</p>
+  </main>
+</body>
+</html>
